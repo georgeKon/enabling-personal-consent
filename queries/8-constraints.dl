@@ -1,0 +1,4 @@
+Q(v,j,an) :- NATION(e,h,f,i),NATION(g,j,k,l),PART(a,m,n,o,'LARGE POLISHED COPPER',p,q,r,s),ORDERS(c,d,'F',u,v,w,x,y,z),CUSTOMER(d,aa,ab,e,ac,ad,ae,af),SUPPLIER(b,ag,ah,g,ai,aj,ak),LINEITEM(c,a,b,al,am,an,ao,ap,aq,ar,as,at,au,av,aw,ax),REGION(f,'AFRICA',ay),PARTSUPP(az,b,ba,bb,bc),PART(az,bd,be,bf,bg,bh,bi,bj,bk)
+Q(v,j,an) :- NATION(e,h,f,i),NATION(g,j,k,l),PART(a,m,n,o,'LARGE POLISHED COPPER',p,q,r,s),ORDERS(c,d,t,u,v,w,x,y,z),CUSTOMER(d,aa,ab,e,ac,ad,ae,af),SUPPLIER(b,ag,ah,g,ai,aj,ak),LINEITEM(c,a,b,4,am,an,ao,0.05,aq,ar,as,at,au,av,aw,ax),REGION(f,'AFRICA',ay),PARTSUPP(az,b,ba,bb,bc),PART(az,bd,be,bf,bg,bh,bi,bj,bk)
+Q(v) :- ORDERS(c,d,'F',u,v,w,x,y,z)
+Q(an) :- LINEITEM(c,a,b,4,am,an,ao,0.05,aq,ar,as,at,au,av,aw,ax)

@@ -1,0 +1,1 @@
+Q(b,t,e,h) :- ORDERS(b,a,c,d,e,f,g,h,i),CUSTOMER(a,j,k,l,m,n,'MACHINERY',o),LINEITEM(b,p,q,r,s,t,u,v,w,x,y,z,aa,ab,ac,ad)

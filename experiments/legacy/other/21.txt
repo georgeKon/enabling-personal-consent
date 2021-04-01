@@ -1,0 +1,76 @@
+Query Q(cud) :- NATION(ctt,'GERMANY',ctu,ctv),ORDERS(cts,ctw,'F',ctx,cty,ctz,cua,cub,cuc),SUPPLIER(ctr,cud,cue,ctt,cuf,cug,cuh),LINEITEM(cts,cui,ctr,cuj,cuk,cul,cum,cun,cuo,cup,cuq,cur,cus,cut,cuu,cuv)
+
+SELECT SUPPLIER0.S_NAME 
+FROM NATION NATION0, ORDERS ORDERS0, SUPPLIER SUPPLIER0, LINEITEM LINEITEM0 
+WHERE SUPPLIER0.S_SUPPKEY = LINEITEM0.L_SUPPKEY
+AND NATION0.N_NATIONKEY = SUPPLIER0.S_NATIONKEY
+AND ORDERS0.O_ORDERKEY = LINEITEM0.L_ORDERKEY
+AND ORDERS0.O_ORDERSTATUS = 'F'
+AND NATION0.N_NAME = 'GERMANY'
+
+
+Parsing query took 1 miliseconds
+Query touches 817372 rows
+Planning: 
+[14.742, 24.794, 17.641, 12.065, 28.882]
+Execution: 
+[196338.6, 196422.05, 196636.84, 197989.69, 201716.69]
+
+
+
+For constraint Q(awg) :- SUPPLIER(awf,awg,awh,awi,awj,awk,awl),LINEITEM(awm,awn,awf,awo,awp,awq,awr,aws,'N',awt,awu,awv,aww,awx,awy,awz)
+Constraint has 2 predicates
+Constraint targetting 50.7% restrictivity
+Constraint touches 21269304 rows
+Rewriting query with constraint took 0 miliseconds
+SELECT SUPPLIER0.S_NAME 
+FROM NATION NATION0, ORDERS ORDERS0, SUPPLIER SUPPLIER0, LINEITEM LINEITEM0 
+WHERE SUPPLIER0.S_SUPPKEY = LINEITEM0.L_SUPPKEY
+AND NATION0.N_NATIONKEY = SUPPLIER0.S_NATIONKEY
+AND ORDERS0.O_ORDERKEY = LINEITEM0.L_ORDERKEY
+AND ORDERS0.O_ORDERSTATUS = 'F'
+AND NATION0.N_NAME = 'GERMANY'
+AND NOT EXISTS(SELECT *
+FROM LINEITEM LINEITEM1 
+WHERE LINEITEM1.L_SUPPKEY = SUPPLIER0.S_SUPPKEY
+AND LINEITEM1.L_RETURNFLAG = 'N'
+)
+
+Executing the rewritten query results in 0 rows.
+
+Planning: 
+[14.757, 25.868, 15.753, 18.681, 22.245]
+Execution: 
+[189256.17, 189075.64, 188890.0, 188696.97, 187650.97]
+
+
+
+For constraint Q(axb) :- SUPPLIER(axa,axb,axc,axd,axe,axf,axg),LINEITEM(axh,axi,axa,axj,axk,axl,axm,axn,axo,axp,axq,axr,axs,axt,'RAIL',axu),PART(axi,axv,'Manufacturer#3',axw,axx,axy,axz,aya,ayb)
+Constraint has 3 predicates
+Constraint targetting 2.86% restrictivity
+Constraint touches 1201622 rows
+Rewriting query with constraint took 0 miliseconds
+SELECT SUPPLIER0.S_NAME 
+FROM NATION NATION0, ORDERS ORDERS0, SUPPLIER SUPPLIER0, LINEITEM LINEITEM0 
+WHERE SUPPLIER0.S_SUPPKEY = LINEITEM0.L_SUPPKEY
+AND NATION0.N_NATIONKEY = SUPPLIER0.S_NATIONKEY
+AND ORDERS0.O_ORDERKEY = LINEITEM0.L_ORDERKEY
+AND ORDERS0.O_ORDERSTATUS = 'F'
+AND NATION0.N_NAME = 'GERMANY'
+AND NOT EXISTS(SELECT *
+FROM LINEITEM LINEITEM1, PART PART0 
+WHERE LINEITEM1.L_SUPPKEY = SUPPLIER0.S_SUPPKEY
+AND LINEITEM1.L_PARTKEY = PART0.P_PARTKEY
+AND LINEITEM1.L_SHIPMODE = 'RAIL'
+AND PART0.P_MFGR = 'Manufacturer#3'
+)
+
+Executing the rewritten query results in 0 rows.
+
+Planning: 
+[22.232, 33.774, 26.916, 26.05, 30.169]
+Execution: 
+[164744.17, 164998.73, 166965.33, 165282.3, 165154.8]
+
+
+

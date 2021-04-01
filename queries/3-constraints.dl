@@ -1,0 +1,4 @@
+Q(b,t,e,h) :- ORDERS(b,a,'O',d,e,f,g,h,i),CUSTOMER(a,j,k,l,m,n,'MACHINERY',o),LINEITEM(b,p,q,r,s,t,u,v,w,x,y,z,aa,ab,ac,ad),NATION(l,ae,af,ag),REGION(af,ah,ai)
+Q(b,t,e,h) :- ORDERS(b,a,c,d,e,f,g,h,i),CUSTOMER(a,j,k,l,m,n,'MACHINERY',o),LINEITEM(b,p,q,6,s,t,u,v,w,x,y,z,aa,ab,ac,ad),PARTSUPP(p,q,ae,af,ag),PART(p,ah,'Manufacturer#4',ai,aj,ak,al,am,an),SUPPLIER(q,ao,ap,aq,ar,as,at)
+Q(b,e,h) :- ORDERS(b,a,'O',d,e,f,g,h,i)
+Q(t) :- LINEITEM(b,p,q,6,s,t,u,v,w,x,y,z,aa,ab,ac,ad),PART(p,ah,'Manufacturer#4',ai,aj,ak,al,am,an)

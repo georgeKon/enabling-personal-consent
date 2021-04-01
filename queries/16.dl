@@ -1,0 +1,1 @@
+Q(h,i,j) :- PARTSUPP(a,b,c,d,e),PART(a,f,g,h,i,j,k,l,m)

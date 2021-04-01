@@ -1,0 +1,4 @@
+Q() :- ORDERS(a,b,c,d,e,f,g,h,i),LINEITEM(a,j,k,l,m,n,o,p,'N',r,s,t,u,v,'FOB',w), CUSTOMER(x,y,z,aa,ab,ac,ad,ae)
+Q() :- ORDERS(a,b,c,d,e,f,g,h,i),LINEITEM(a,j,k,l,m,n,o,p,q,r,s,t,u,v,'FOB',w), CUSTOMER(x,y,z,aa,ab,ac,'MACHINERY',ae), NATION(aa,af,0,ag)
+Q() :- ORDERS(a,b,c,d,e,f,g,h,i),LINEITEM(a,j,k,l,m,n,o,p,'N',r,s,t,u,v,'FOB',w)
+Q() :- CUSTOMER(x,y,z,aa,ab,ac,'MACHINERY',ae), NATION(aa,af,0,ag)

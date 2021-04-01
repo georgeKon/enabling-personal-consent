@@ -1,0 +1,4 @@
+Q(l) :- PART(a,b,c,'Brand#54',d,e,'WRAP PKG',f,g), PARTSUPP(a,w,x,y,z), LINEITEM(h,a,i,j,k,l,m,n,'N',p,q,r,s,t,u,v)
+Q(l) :- PART(a,b,'Manufacturer#5','Brand#54',d,e,'WRAP PKG',f,g), PARTSUPP(a,w,x,y,z), LINEITEM(h,a,i,j,k,l,m,n,o,p,q,r,s,t,u,v), ORDERS(h,aa,ab,ac,ad,'4-NOT SPECIFIED',ae,af,ag)
+Q(l) :- PART(a,b,c,'Brand#54',d,e,'WRAP PKG',f,g),LINEITEM(h,a,i,j,k,l,m,n,'N',p,q,r,s,t,u,v)
+Q(l) :- PART(a,b,'Manufacturer#5','Brand#54',d,e,'WRAP PKG',f,g),LINEITEM(h,a,i,j,k,l,m,n,o,p,q,r,s,t,u,v),ORDERS(h,aa,ab,ac,ad,'4-NOT SPECIFIED',ae,af,ag)

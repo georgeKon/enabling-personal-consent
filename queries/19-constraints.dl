@@ -1,0 +1,4 @@
+Q(m) :- PART(a,b,c,'Brand#54',d,e,f,g,h),PARTSUPP(a,j,w,x,y),LINEITEM(i,a,j,k,l,m,n,o,'N',q,r,s,t,'DELIVER IN PERSON',u,v)
+Q(m) :- PART(a,b,c,'Brand#54',d,e,f,g,h),PARTSUPP(a,j,w,x,y),LINEITEM(i,a,j,1,l,m,n,0.02,p,q,r,s,t,'DELIVER IN PERSON',u,v)
+Q(m) :- LINEITEM(i,a,j,k,l,m,n,o,'N',q,r,s,t,'DELIVER IN PERSON',u,v)
+Q(m) :- LINEITEM(i,a,j,1,l,m,n,0.02,p,q,r,s,t,'DELIVER IN PERSON',u,v)

@@ -1,0 +1,68 @@
+Query Q(clz,ckz,cln) :- PARTSUPP(ckt,cks,ckw,ckx,cky),NATION(ckv,ckz,cla,clb),PART(ckt,clc,cld,cle,clf,clg,clh,cli,clj),ORDERS(cku,clk,cll,clm,cln,clo,clp,clq,clr),SUPPLIER(cks,cls,clt,ckv,clu,clv,clw),LINEITEM(cku,ckt,cks,clx,cly,clz,cma,cmb,cmc,cmd,cme,cmf,cmg,cmh,cmi,cmj)
+
+SELECT LINEITEM0.L_EXTENDEDPRICE, NATION0.N_NAME, ORDERS0.O_ORDERDATE 
+FROM PARTSUPP PARTSUPP0, NATION NATION0, PART PART0, ORDERS ORDERS0, SUPPLIER SUPPLIER0, LINEITEM LINEITEM0 
+WHERE PARTSUPP0.PS_SUPPKEY = SUPPLIER0.S_SUPPKEY
+AND PARTSUPP0.PS_SUPPKEY = LINEITEM0.L_SUPPKEY
+AND ORDERS0.O_ORDERKEY = LINEITEM0.L_ORDERKEY
+AND PARTSUPP0.PS_PARTKEY = PART0.P_PARTKEY
+AND PARTSUPP0.PS_PARTKEY = LINEITEM0.L_PARTKEY
+AND NATION0.N_NATIONKEY = SUPPLIER0.S_NATIONKEY
+
+
+Parsing query took 6 miliseconds
+Query touches 41995307 rows
+Planning: 
+[22.975, 28.555, 32.637, 30.409, 31.38]
+Execution: 
+[1186537.8, 1198163.0, 1189999.4, 1183277.4, 1184890.5]
+
+
+
+For constraint Q(bwg) :- LINEITEM(bwb,bwc,bwd,bwe,bwf,bwg,bwh,bwi,'N',bwj,bwk,bwl,bwm,bwn,bwo,bwp)
+Constraint has 1 predicates
+Constraint targetting 50.7% restrictivity
+Constraint touches 21269304 rows
+Rewriting query with constraint took 1 miliseconds
+SELECT LINEITEM0.L_EXTENDEDPRICE, NATION0.N_NAME, ORDERS0.O_ORDERDATE 
+FROM PARTSUPP PARTSUPP0, NATION NATION0, PART PART0, ORDERS ORDERS0, SUPPLIER SUPPLIER0, LINEITEM LINEITEM0 
+WHERE PARTSUPP0.PS_SUPPKEY = SUPPLIER0.S_SUPPKEY
+AND PARTSUPP0.PS_SUPPKEY = LINEITEM0.L_SUPPKEY
+AND ORDERS0.O_ORDERKEY = LINEITEM0.L_ORDERKEY
+AND PARTSUPP0.PS_PARTKEY = PART0.P_PARTKEY
+AND PARTSUPP0.PS_PARTKEY = LINEITEM0.L_PARTKEY
+AND NATION0.N_NATIONKEY = SUPPLIER0.S_NATIONKEY
+AND (
+'N' != LINEITEM0.L_RETURNFLAG)
+Executing the rewritten query results in 20726003 rows.
+
+Planning: 
+[23.872, 23.349, 34.379, 20.437, 27.181]
+Execution: 
+[729650.9, 702544.2, 706367.0, 729137.56, 713469.25]
+
+
+
+For constraint Q(bxx,bww,bxl) :- PARTSUPP(bwq,bwr,bws,bwt,bwu),NATION(bwv,bww,bwx,bwy),PART(bwq,bwz,bxa,bxb,bxc,bxd,bxe,bxf,bxg),ORDERS(bxh,bxi,bxj,bxk,bxl,bxm,bxn,bxo,bxp),SUPPLIER(bwr,bxq,bxr,bwv,bxs,bxt,bxu),LINEITEM(bxh,bwq,bwr,bxv,bxw,bxx,bxy,bxz,bya,byb,byc,byd,bye,byf,byg,byh),REGION(bwx,'AFRICA',byi),CUSTOMER(bxi,byj,byk,byl,bym,byn,'AUTOMOBILE',byo)
+Constraint has 8 predicates
+Constraint targetting 4% restrictivity
+Constraint touches 1663459 rows
+Rewriting query with constraint took 7 miliseconds
+SELECT LINEITEM0.L_EXTENDEDPRICE, NATION0.N_NAME, ORDERS0.O_ORDERDATE 
+FROM PARTSUPP PARTSUPP0, NATION NATION0, PART PART0, ORDERS ORDERS0, SUPPLIER SUPPLIER0, LINEITEM LINEITEM0 
+WHERE PARTSUPP0.PS_SUPPKEY = SUPPLIER0.S_SUPPKEY
+AND PARTSUPP0.PS_SUPPKEY = LINEITEM0.L_SUPPKEY
+AND ORDERS0.O_ORDERKEY = LINEITEM0.L_ORDERKEY
+AND PARTSUPP0.PS_PARTKEY = PART0.P_PARTKEY
+AND PARTSUPP0.PS_PARTKEY = LINEITEM0.L_PARTKEY
+AND NATION0.N_NATIONKEY = SUPPLIER0.S_NATIONKEY
+
+Executing the rewritten query results in 41995307 rows.
+
+Planning: 
+[34.02, 26.466, 19.453, 34.408, 31.775]
+Execution: 
+[1191517.0, 1180923.4, 1170304.5, 1201497.4, 1186899.1]
+
+
+

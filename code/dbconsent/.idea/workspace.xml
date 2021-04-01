@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="fine_grained_rewriting:jar" />
+    </artifacts-to-build>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="f11c6f6b-2a46-4acf-b38f-3a4d1dc31477" name="Default" comment="Removed PropagationRewritingAlgorithm (merged into RewritingAlgorithm).">
+      <change beforePath="$PROJECT_DIR$/src/dbconsent/Propagation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dbconsent/Propagation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dbconsent/RewritingAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dbconsent/RewritingAlgorithm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dbconsent/TPCHSchema.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dbconsent/TPCHSchema.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dbconsent/experiments/Experiment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dbconsent/experiments/Experiment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dbconsent/generation/PropagatedQueryGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dbconsent/generation/PropagatedQueryGenerator.java" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="postgres" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="1P8PutKx8wlcR70KLnur5C4pVIR" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="PropertiesComponent">
+    <property name="$PROJECT_DIR$/src/dbconsent/DatalogParser/Datalog.g4::/auto-gen" value="false" />
+    <property name="$PROJECT_DIR$/src/dbconsent/DatalogParser/Datalog.g4::/gen-listener" value="true" />
+    <property name="$PROJECT_DIR$/src/dbconsent/DatalogParser/Datalog.g4::/gen-visitor" value="false" />
+    <property name="$PROJECT_DIR$/src/dbconsent/DatalogParser/Datalog.g4::/output-dir" value="$PROJECT_DIR$/src" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///home/dbconsent/code/postgres/src/dbconsent/constraintgeneration/Restriction.java&#10; {&#9;FILE&#9;file:///home/dbconsent/code/postgres/src/dbconsent/Equivalence.java" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/dbconsent/DatalogParser" />
+      <recent name="$PROJECT_DIR$/src/dbconsent/PostgreSQLParser" />
+      <recent name="$PROJECT_DIR$/src/dbconsent" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="dbconsent.experiments" />
+      <recent name="dbconsent.experiments.experiments" />
+      <recent name="dbconsent.experiments.architecture" />
+      <recent name="dbconsent.ConstraintGeneration" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/libaries" />
+      <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$/src/dbconsent/experiments" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="dbconsent.experiments" />
+      <recent name="dbconsent" />
+      <recent name="" />
+    </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="dbconsent" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.PropagationExperiment">
+    <configuration name="PropagatedQueryGenerator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="dbconsent.generation.PropagatedQueryGenerator" />
+      <module name="dbconsent" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="dbconsent.generation.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Propagation" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="dbconsent.Propagation" />
+      <module name="dbconsent" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="dbconsent.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PropagationExperiment" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="dbconsent.experiments.experiments.PropagationExperiment" />
+      <module name="dbconsent" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="dbconsent.experiments.experiments.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="All in dbconsent" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="dbconsent" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PropagationTest.unfoldQuerySingleEquality" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="dbconsent" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="dbconsent.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="dbconsent" />
+      <option name="MAIN_CLASS_NAME" value="dbconsent.PropagationTest" />
+      <option name="METHOD_NAME" value="unfoldQuerySingleEquality" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="TestNG">
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.PropagationExperiment" />
+      <item itemvalue="Application.PropagatedQueryGenerator" />
+      <item itemvalue="Application.Propagation" />
+      <item itemvalue="JUnit.All in dbconsent" />
+      <item itemvalue="JUnit.PropagationTest.unfoldQuerySingleEquality" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.PropagationExperiment" />
+        <item itemvalue="Application.Propagation" />
+        <item itemvalue="Application.PropagatedQueryGenerator" />
+        <item itemvalue="JUnit.All in dbconsent" />
+        <item itemvalue="JUnit.PropagationTest.unfoldQuerySingleEquality" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f11c6f6b-2a46-4acf-b38f-3a4d1dc31477" name="Default" comment="" />
+      <created>1529058272332</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1529058272332</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Faster unionECSets implementation.">
+      <created>1565257982881</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1565257982881</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Hash previous query heads">
+      <created>1565260203175</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1565260203175</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Allowed predicates to contain numbers and '.">
+      <created>1565349542387</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1565349542387</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Added RewrittenConstraint equality &amp; Propagation tests.">
+      <created>1565615896528</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1565615896528</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Propagated query generator">
+      <created>1565970049450</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1565970049455</updated>
+    </task>
+    <task id="LOCAL-00006" summary="All Datalog queries are safeNamespaced on parsing and constraints are renamed on every use.">
+      <created>1567167399812</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1567167399812</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Removed PropagationRewritingAlgorithm (merged into RewritingAlgorithm).">
+      <created>1567167459158</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1567167459158</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Update tests">
+      <created>1567605376411</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1567605376411</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Experiment updates.">
+      <created>1567605473292</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1567605473292</updated>
+    </task>
+    <task id="LOCAL-00010" summary="ECset toString fix commas.">
+      <created>1567605520775</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1567605520775</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
+    <servers />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.g4" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Faster unionECSets implementation." />
+    <MESSAGE value="Hash previous query heads" />
+    <MESSAGE value="Allowed predicates to contain numbers and '." />
+    <MESSAGE value="Added RewrittenConstraint equality." />
+    <MESSAGE value="Added RewrittenConstraint equality &amp; Propagation tests." />
+    <MESSAGE value="Propagated query generator" />
+    <MESSAGE value="All Datalog queries are safeNamespaced on parsing and constraints are renamed on every use." />
+    <MESSAGE value="Removed PropagationRewritingAlgorithm (merged into RewritingAlgorithm)." />
+    <MESSAGE value="Update tests" />
+    <MESSAGE value="Experiment updates." />
+    <MESSAGE value="ECset toString fix commas." />
+    <option name="LAST_COMMIT_MESSAGE" value="ECset toString fix commas." />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/dbconsent/RewritingAlgorithm.java</url>
+          <line>146</line>
+          <option name="timeStamp" value="46" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/dbconsent/Propagation.java</url>
+          <line>45</line>
+          <option name="timeStamp" value="49" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <last-edited>fine_grained_rewriting:jar</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.5" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>postgres</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

@@ -1,0 +1,4 @@
+Q(ae,aj) :- NATION(d,'INDONESIA',f,g),NATION(e,'MOROCCO',h,i),ORDERS(b,c,j,k,l,m,n,o,p),CUSTOMER(c,q,r,e,s,t,u,v),SUPPLIER(a,w,x,d,y,z,aa),LINEITEM(b,ab,a,ac,ad,ae,af,ag,'N',ai,aj,ak,al,am,an,ao),PARTSUPP(ab,a,ap,aq,ar),PART(ab,as,at,au,av,aw,ax,ay,az)
+Q(ae,aj) :- NATION(d,'INDONESIA',f,g),NATION(e,'MOROCCO',h,i),ORDERS(b,c,j,k,l,m,n,o,p),CUSTOMER(c,q,r,e,s,t,u,v),SUPPLIER(a,w,x,d,y,z,aa),LINEITEM(b,ab,a,ac,ad,ae,af,ag,'R',ai,aj,ak,al,am,an,ao),PARTSUPP(ab,a,ap,aq,ar),PART(ab,as,'Manufacturer#4',au,av,aw,ax,ay,az)
+Q(ae,aj) :- LINEITEM(b,ab,a,ac,ad,ae,af,ag,'N',ai,aj,ak,al,am,an,ao),PART(ab,as,at,au,av,aw,ax,ay,az)
+Q(ae,aj) :- LINEITEM(b,ab,a,ac,ad,ae,af,ag,'R',ai,aj,ak,al,am,an,ao),PART(ab,as,'Manufacturer#4',au,av,aw,ax,ay,az)

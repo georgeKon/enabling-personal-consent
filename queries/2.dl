@@ -1,0 +1,1 @@
+Q(q,a,r,s,t,u,h,k) :- PARTSUPP(a,b,e,f,g),NATION(c,h,d,i),PART(a,j,k,l,m,9,n,o,p),SUPPLIER(b,q,r,c,s,t,u),REGION(d,'MIDDLE EAST',v)

@@ -1,0 +1,65 @@
+Query Q(ctn,ctm) :- NATION(cti,'ARGENTINA',ctj,ctk),SUPPLIER(ctl,ctm,ctn,cti,cto,ctp,ctq)
+
+SELECT SUPPLIER0.S_ADDRESS, SUPPLIER0.S_NAME 
+FROM NATION NATION0, SUPPLIER SUPPLIER0 
+WHERE NATION0.N_NATIONKEY = SUPPLIER0.S_NATIONKEY
+AND NATION0.N_NAME = 'ARGENTINA'
+
+
+Parsing query took 7 miliseconds
+Query touches 2861 rows
+Planning: 
+[4.48, 9.992, 6.787, 3.559, 3.771]
+Execution: 
+[280.169, 268.115, 268.247, 261.251, 273.62]
+
+
+
+For constraint Q(jt,ju) :- SUPPLIER(js,jt,ju,jv,jw,jx,jy),LINEITEM(jz,ka,js,kb,kc,kd,ke,kf,kg,'F',kh,ki,kj,kk,kl,km)
+Constraint has 2 predicates
+Constraint targetting 49.9% restrictivity
+Constraint touches 20996035 rows
+Rewriting query with constraint took 0 miliseconds
+SELECT SUPPLIER0.S_ADDRESS, SUPPLIER0.S_NAME 
+FROM NATION NATION0, SUPPLIER SUPPLIER0 
+WHERE NATION0.N_NATIONKEY = SUPPLIER0.S_NATIONKEY
+AND NATION0.N_NAME = 'ARGENTINA'
+AND NOT EXISTS(SELECT *
+FROM LINEITEM LINEITEM0 
+WHERE LINEITEM0.L_SUPPKEY = SUPPLIER0.S_SUPPKEY
+AND LINEITEM0.L_LINESTATUS = 'F'
+)
+
+Executing the rewritten query results in 0 rows.
+
+Planning: 
+[9.063, 9.799, 9.027, 14.407, 24.06]
+Execution: 
+[174858.06, 173187.16, 171718.23, 173422.92, 174616.77]
+
+
+
+For constraint Q(ko,kp) :- SUPPLIER(kn,ko,kp,kq,kr,ks,kt),CUSTOMER(ku,kv,kw,kq,kx,ky,'FURNITURE',kz)
+Constraint has 2 predicates
+Constraint targetting 20.0% restrictivity
+Constraint touches 586787505 rows
+Rewriting query with constraint took 0 miliseconds
+SELECT SUPPLIER0.S_ADDRESS, SUPPLIER0.S_NAME 
+FROM NATION NATION0, SUPPLIER SUPPLIER0 
+WHERE NATION0.N_NATIONKEY = SUPPLIER0.S_NATIONKEY
+AND NATION0.N_NAME = 'ARGENTINA'
+AND NOT EXISTS(SELECT *
+FROM CUSTOMER CUSTOMER0 
+WHERE CUSTOMER0.C_NATIONKEY = NATION0.N_NATIONKEY
+AND CUSTOMER0.C_MKTSEGMENT = 'FURNITURE'
+)
+
+Executing the rewritten query results in 0 rows.
+
+Planning: 
+[7.618, 9.661, 8.341, 8.613, 8.125]
+Execution: 
+[5000.731, 5023.992, 5058.143, 5057.181, 4970.998]
+
+
+

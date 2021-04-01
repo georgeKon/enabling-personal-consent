@@ -1,0 +1,75 @@
+Query Q(cnt) :- PARTSUPP(cnt,cnr,cnu,cnv,cnw),NATION(cns,'JAPAN',cnx,cny),SUPPLIER(cnr,cnz,coa,cns,cob,coc,cod)
+
+SELECT PARTSUPP0.PS_PARTKEY 
+FROM PARTSUPP PARTSUPP0, NATION NATION0, SUPPLIER SUPPLIER0 
+WHERE PARTSUPP0.PS_SUPPKEY = SUPPLIER0.S_SUPPKEY
+AND NATION0.N_NATIONKEY = SUPPLIER0.S_NATIONKEY
+AND NATION0.N_NAME = 'JAPAN'
+
+
+Parsing query took 2 miliseconds
+Query touches 222320 rows
+Planning: 
+[8.857, 8.62, 7.543, 17.358, 11.919]
+Execution: 
+[23592.568, 23551.912, 23590.725, 23561.02, 23587.244]
+
+
+
+For constraint Q(amo) :- PARTSUPP(amo,amp,amq,amr,ams),SUPPLIER(amp,amt,amu,amv,amw,amx,amy),CUSTOMER(amz,ana,anb,amv,anc,and,ane,anf),ORDERS(ang,amz,'O',anh,ani,anj,ank,anl,anm)
+Constraint has 4 predicates
+Constraint targetting 48.8% restrictivity
+Constraint touches -1 rows
+Rewriting query with constraint took 0 miliseconds
+SELECT PARTSUPP0.PS_PARTKEY 
+FROM PARTSUPP PARTSUPP0, NATION NATION0, SUPPLIER SUPPLIER0 
+WHERE PARTSUPP0.PS_SUPPKEY = SUPPLIER0.S_SUPPKEY
+AND NATION0.N_NATIONKEY = SUPPLIER0.S_NATIONKEY
+AND NATION0.N_NAME = 'JAPAN'
+AND NOT EXISTS(SELECT *
+FROM SUPPLIER SUPPLIER1, CUSTOMER CUSTOMER0, ORDERS ORDERS0 
+WHERE SUPPLIER1.S_SUPPKEY = PARTSUPP0.PS_SUPPKEY
+AND SUPPLIER1.S_NATIONKEY = CUSTOMER0.C_NATIONKEY
+AND CUSTOMER0.C_CUSTKEY = ORDERS0.O_CUSTKEY
+AND ORDERS0.O_ORDERSTATUS = 'O'
+)
+
+Executing the rewritten query results in -1 rows.
+
+Planning: 
+[0.0, 0.0, 0.0, 0.0, 0.0]
+Execution: 
+[0.0, 0.0, 0.0, 0.0, 0.0]
+
+
+
+For constraint Q(ann) :- PARTSUPP(ann,ano,anp,anq,anr),NATION(ans,'JAPAN',ant,anu),SUPPLIER(ano,anv,anw,ans,anx,any,anz),PART(ann,aoa,'Manufacturer#1',aob,aoc,aod,aoe,aof,aog),CUSTOMER(aoh,aoi,aoj,ans,aok,aol,'HOUSEHOLD',aom)
+Constraint has 5 predicates
+Constraint targetting 4% restrictivity
+Constraint touches 374215815 rows
+Rewriting query with constraint took 0 miliseconds
+SELECT PARTSUPP0.PS_PARTKEY 
+FROM PARTSUPP PARTSUPP0, NATION NATION0, SUPPLIER SUPPLIER0 
+WHERE PARTSUPP0.PS_SUPPKEY = SUPPLIER0.S_SUPPKEY
+AND NATION0.N_NATIONKEY = SUPPLIER0.S_NATIONKEY
+AND NATION0.N_NAME = 'JAPAN'
+AND NOT EXISTS(SELECT *
+FROM NATION NATION1, SUPPLIER SUPPLIER1, PART PART0, CUSTOMER CUSTOMER0 
+WHERE SUPPLIER1.S_SUPPKEY = PARTSUPP0.PS_SUPPKEY
+AND NATION1.N_NATIONKEY = SUPPLIER1.S_NATIONKEY
+AND NATION1.N_NATIONKEY = CUSTOMER0.C_NATIONKEY
+AND PART0.P_PARTKEY = PARTSUPP0.PS_PARTKEY
+AND PART0.P_MFGR = 'Manufacturer#1'
+AND NATION1.N_NAME = 'JAPAN'
+AND CUSTOMER0.C_MKTSEGMENT = 'HOUSEHOLD'
+)
+
+Executing the rewritten query results in 177797 rows.
+
+Planning: 
+[18.982, 26.997, 19.36, 20.685, 17.313]
+Execution: 
+[33610.895, 33468.637, 33445.26, 33659.25, 33634.953]
+
+
+

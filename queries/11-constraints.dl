@@ -1,0 +1,4 @@
+Q(c) :- PARTSUPP(c,a,d,e,f),NATION(b,'JAPAN',g,h),SUPPLIER(a,i,j,b,k,l,m),CUSTOMER(n,o,p,b,r,s,t,u), ORDERS(v,n,'O',y,z,aa,ab,ac,ad)
+Q(c) :- PARTSUPP(c,a,d,e,f),NATION(b,'JAPAN',g,h),SUPPLIER(a,i,j,b,k,l,m), PART(c,n,'Manufacturer#1',o,p,q,r,s,t), CUSTOMER(u,v,w,b,x,y,'HOUSEHOLD',z)
+Q(c) :- PARTSUPP(c,a,d,e,f),NATION(b,'JAPAN',g,h),SUPPLIER(a,i,j,b,k,l,m),CUSTOMER(n,o,p,b,r,s,t,u), ORDERS(v,n,'O',y,z,aa,ab,ac,ad)
+Q(c) :- PARTSUPP(c,a,d,e,f),NATION(b,'JAPAN',g,h),SUPPLIER(a,i,j,b,k,l,m), PART(c,n,'Manufacturer#1',o,p,q,r,s,t), CUSTOMER(u,v,w,b,x,y,'HOUSEHOLD',z)

@@ -1,0 +1,55 @@
+Query Q(cff,cfe,cfj,cfi) :- LINEITEM(cfa,cfb,cfc,cfd,cfe,cff,cfg,cfh,cfi,cfj,cfk,cfl,cfm,cfn,cfo,cfp)
+
+SELECT LINEITEM0.L_EXTENDEDPRICE, LINEITEM0.L_QUANTITY, LINEITEM0.L_LINESTATUS, LINEITEM0.L_RETURNFLAG 
+FROM LINEITEM LINEITEM0 
+
+
+Parsing query took 298 miliseconds
+Query touches 41995307 rows
+Planning: 
+[4.194, 3.009, 3.327, 2.872, 4.927]
+Execution: 
+[154517.1, 154501.48, 154465.58, 154506.02, 154463.12]
+
+
+
+For constraint Q(xh,xc) :- LINEITEM(wy,wz,xa,xb,xc,xd,xe,xf,xg,xh,xi,xj,xk,xl,xm,xn),ORDERS(wy,xo,'F',xp,xq,xr,xs,xt,xu)
+Constraint targetting 48.6 restrictivityConstraint touches 20338127 rows
+Rewriting query with constraint took 8 miliseconds
+SELECT LINEITEM0.L_EXTENDEDPRICE, LINEITEM0.L_QUANTITY, LINEITEM0.L_LINESTATUS, LINEITEM0.L_RETURNFLAG 
+FROM LINEITEM LINEITEM0 
+WHERE NOT EXISTS(SELECT *
+FROM ORDERS ORDERS0 
+WHERE ORDERS0.O_ORDERKEY = LINEITEM0.L_ORDERKEY
+AND ORDERS0.O_ORDERSTATUS = 'F'
+)
+
+Executing the rewritten query results in 21657180 rows.
+
+Planning: 
+[18.986, 13.846, 18.077, 10.061, 15.215]
+Execution: 
+[271034.6, 265892.47, 270044.66, 270308.5, 270394.97]
+
+
+
+For constraint Q(yd,ye) :- LINEITEM(xv,xw,xx,xy,xz,ya,yb,yc,yd,ye,yf,yg,yh,yi,yj,yk),ORDERS(xv,yl,'P',ym,yn,yo,yp,yq,yr)
+Constraint targetting 2.6 restrictivityConstraint touches 1312985 rows
+Rewriting query with constraint took 0 miliseconds
+SELECT LINEITEM0.L_EXTENDEDPRICE, LINEITEM0.L_QUANTITY, LINEITEM0.L_LINESTATUS, LINEITEM0.L_RETURNFLAG 
+FROM LINEITEM LINEITEM0 
+WHERE NOT EXISTS(SELECT *
+FROM ORDERS ORDERS0 
+WHERE ORDERS0.O_ORDERKEY = LINEITEM0.L_ORDERKEY
+AND ORDERS0.O_ORDERSTATUS = 'P'
+)
+
+Executing the rewritten query results in 40682322 rows.
+
+Planning: 
+[13.604, 22.065, 16.793, 10.372, 10.991]
+Execution: 
+[241481.89, 255001.12, 245719.33, 254383.14, 251767.98]
+
+
+

@@ -1,0 +1,4 @@
+Q(v,ah,h) :- PARTSUPP(b,a,e,f,g),NATION(d,h,i,j),PART(b,k,l,m,n,o,p,q,r),ORDERS(c,s,t,u,v,w,x,y,z),SUPPLIER(a,aa,ab,d,ac,ad,ae),LINEITEM(c,b,a,af,ag,ah,ai,aj,'N',al,am,an,ao,ap,aq,ar),REGION(i,as,at),CUSTOMER(s,av,aw,ax,ay,az,ba,bb)
+Q(v,ah,h) :- PARTSUPP(b,a,e,f,g),NATION(d,h,i,j),PART(b,k,l,m,n,o,p,q,r),ORDERS(c,s,t,u,v,w,x,y,z),SUPPLIER(a,aa,ab,d,ac,ad,ae),LINEITEM(c,b,a,af,ag,ah,ai,aj,ak,al,am,an,ao,ap,aq,ar),REGION(i,'AFRICA',at),CUSTOMER(s,au,av,aw,ax,ay,'AUTOMOBILE',az)
+Q(ah) :- LINEITEM(c,b,a,af,ag,ah,ai,aj,'N',al,am,an,ao,ap,aq,ar)
+Q(v,ah,h) :- PARTSUPP(b,a,e,f,g),NATION(d,h,i,j),PART(b,k,l,m,n,o,p,q,r),ORDERS(c,s,t,u,v,w,x,y,z),SUPPLIER(a,aa,ab,d,ac,ad,ae),LINEITEM(c,b,a,af,ag,ah,ai,aj,ak,al,am,an,ao,ap,aq,ar),REGION(i,'AFRICA',at),CUSTOMER(s,au,av,aw,ax,ay,'AUTOMOBILE',az)

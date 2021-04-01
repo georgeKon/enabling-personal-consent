@@ -1,0 +1,37 @@
+Query Q(fty,fuy,fum) :- PARTSUPP(fts,ftr,ftv,ftw,ftx),NATION(ftu,fty,ftz,fua),PART(fts,fub,fuc,fud,fue,fuf,fug,fuh,fui),ORDERS(ftt,fuj,fuk,ful,fum,fun,fuo,fup,fuq),SUPPLIER(ftr,fur,fus,ftu,fut,fuu,fuv),LINEITEM(ftt,fts,ftr,fuw,fux,fuy,fuz,fva,fvb,fvc,fvd,fve,fvf,fvg,fvh,fvi)
+
+For constraint Q(bti,bsh,bsw) :- PARTSUPP(bsb,bsc,bsd,bse,bsf),NATION(bsg,bsh,bsi,bsj),PART(bsb,bsk,bsl,bsm,bsn,bso,bsp,bsq,bsr),ORDERS(bss,bst,bsu,bsv,bsw,bsx,bsy,bsz,bta),SUPPLIER(bsc,btb,btc,bsg,btd,bte,btf),LINEITEM(bss,bsb,bsc,btg,bth,bti,btj,btk,'N',btl,btm,btn,bto,btp,btq,btr),REGION(bsi,bts,btt,btu),CUSTOMER(bst,btv,btw,btx,bty,btz,bua,bub)
+Constraint has 8 predicates
+Constraint targetting 50.7% restrictivity
+Rewriting query with constraint took 857905 nanoseconds
+Rewriting query with constraint produced 0 successful unifications.
+For constraint Q(bux,bvj,bui) :- PARTSUPP(buc,bud,bue,buf,bug),NATION(buh,bui,buj,buk),PART(buc,bul,bum,bun,buo,bup,buq,bur,bus),ORDERS(but,buu,buv,buw,bux,buy,buz,bva,bvb),SUPPLIER(bud,bvc,bvd,buh,bve,bvf,bvg),LINEITEM(but,buc,bud,bvh,bvi,bvj,bvk,bvl,bvm,bvn,bvo,bvp,bvq,bvr,bvs,bvt),REGION(buj,'AFRICA',bvu),CUSTOMER(buu,bvv,bvw,bvx,bvy,bvz,'AUTOMOBILE',bwa)
+Constraint has 8 predicates
+Constraint targetting 4% restrictivity
+Rewriting query with constraint took 795305 nanoseconds
+Rewriting query with constraint produced 0 successful unifications.
+For constraint Q(bwg) :- LINEITEM(bwb,bwc,bwd,bwe,bwf,bwg,bwh,bwi,'N',bwj,bwk,bwl,bwm,bwn,bwo,bwp)
+Constraint has 1 predicates
+Constraint targetting 50.7% restrictivity
+Rewriting query with constraint took 85200 nanoseconds
+Rewriting query with constraint produced 1 successful unifications.
+For constraint Q(bxx,bww,bxl) :- PARTSUPP(bwq,bwr,bws,bwt,bwu),NATION(bwv,bww,bwx,bwy),PART(bwq,bwz,bxa,bxb,bxc,bxd,bxe,bxf,bxg),ORDERS(bxh,bxi,bxj,bxk,bxl,bxm,bxn,bxo,bxp),SUPPLIER(bwr,bxq,bxr,bwv,bxs,bxt,bxu),LINEITEM(bxh,bwq,bwr,bxv,bxw,bxx,bxy,bxz,bya,byb,byc,byd,bye,byf,byg,byh),REGION(bwx,'AFRICA',byi),CUSTOMER(bxi,byj,byk,byl,bym,byn,'AUTOMOBILE',byo)
+Constraint has 8 predicates
+Constraint targetting 4% restrictivity
+Rewriting query with constraint took 874405 nanoseconds
+Rewriting query with constraint produced 0 successful unifications.
+Running the query against 10 constraints
+Rewriting query with 10 constraints took 2312515 nanoseconds
+For this query, rewriting with 10 constraints produced 5 successful unifications.
+Running the query against 20 constraints
+Rewriting query with 20 constraints took 4142625 nanoseconds
+For this query, rewriting with 20 constraints produced 8 successful unifications.
+Running the query against 40 constraints
+Rewriting query with 40 constraints took 31340392 nanoseconds
+For this query, rewriting with 40 constraints produced 17 successful unifications.
+Running the query against 60 constraints
+Rewriting query with 60 constraints took 19638821 nanoseconds
+For this query, rewriting with 60 constraints produced 21 successful unifications.
+Running the query against 76 constraints
+Rewriting query with 76 constraints took 22158635 nanoseconds
+For this query, rewriting with 76 constraints produced 27 successful unifications.

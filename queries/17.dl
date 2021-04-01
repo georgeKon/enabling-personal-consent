@@ -1,0 +1,1 @@
+Q(l) :- PART(a,b,c,'Brand#54',d,e,'WRAP PKG',f,g),LINEITEM(h,a,i,j,k,l,m,n,o,p,q,r,s,t,u,v)

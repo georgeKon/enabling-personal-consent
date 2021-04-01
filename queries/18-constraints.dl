@@ -1,0 +1,4 @@
+Q(a,b,d,t,e,j) :- ORDERS(b,a,c,d,e,f,g,h,i),CUSTOMER(a,j,k,l,m,n,o,p),LINEITEM(b,q,r,s,t,u,v,w,x,'F',z,aa,ab,ac,ad,ae),PARTSUPP(q,r,af,ag,ah)
+Q(a,b,d,t,e,j) :- ORDERS(b,a,c,d,e,f,g,h,i),CUSTOMER(a,j,k,l,m,n,'BUILDING',p),LINEITEM(b,q,r,s,t,u,v,w,x,y,z,aa,ab,ac,ad,ae),NATION(l,af,5,ag)
+Q(b) :- LINEITEM(b,q,r,s,t,u,v,w,x,'F',z,aa,ab,ac,ad,ae)
+Q(a,j) :- CUSTOMER(a,j,k,l,m,n,'BUILDING',p),NATION(l,af,5,ag)

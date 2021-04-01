@@ -1,0 +1,74 @@
+Query Q(cqw) :- PART(cql,cqm,cqn,'Brand#54',cqo,cqp,'WRAP PKG',cqq,cqr),LINEITEM(cqs,cql,cqt,cqu,cqv,cqw,cqx,cqy,cqz,cra,crb,crc,crd,cre,crf,crg)
+
+SELECT LINEITEM0.L_EXTENDEDPRICE 
+FROM PART PART0, LINEITEM LINEITEM0 
+WHERE PART0.P_PARTKEY = LINEITEM0.L_PARTKEY
+AND PART0.P_CONTAINER = 'WRAP PKG'
+AND PART0.P_BRAND = 'Brand#54'
+
+
+Parsing query took 6 miliseconds
+Query touches 42786 rows
+Planning: 
+[14.948, 9.549, 9.743, 9.672, 6.128]
+Execution: 
+[159670.75, 159673.66, 159704.84, 159675.5, 159707.8]
+
+
+
+For constraint Q(tg) :- PART(sv,sw,sx,'Brand#54',sy,sz,'WRAP PKG',ta,tb),LINEITEM(tc,sv,td,te,tf,tg,th,ti,'N',tj,tk,tl,tm,tn,to,tp)
+Constraint has 2 predicates
+Constraint targetting 50.7% restrictivity
+Constraint touches 21650 rows
+Rewriting query with constraint took 0 miliseconds
+SELECT LINEITEM0.L_EXTENDEDPRICE 
+FROM PART PART0, LINEITEM LINEITEM0 
+WHERE PART0.P_PARTKEY = LINEITEM0.L_PARTKEY
+AND PART0.P_CONTAINER = 'WRAP PKG'
+AND PART0.P_BRAND = 'Brand#54'
+AND NOT EXISTS(SELECT *
+FROM PART PART1 
+WHERE PART1.P_PARTKEY = PART0.P_PARTKEY
+AND PART1.P_CONTAINER = 'WRAP PKG'
+AND PART1.P_BRAND = 'Brand#54'
+AND 'N' = LINEITEM0.L_RETURNFLAG
+)
+
+Executing the rewritten query results in 21136 rows.
+
+Planning: 
+[14.622, 9.432, 10.113, 13.282, 8.544]
+Execution: 
+[160008.83, 160050.62, 160094.48, 160193.92, 160040.5]
+
+
+
+For constraint Q(ua) :- PART(tq,tr,'Manufacturer#5','Brand#54',ts,tt,'WRAP PKG',tu,tv),LINEITEM(tw,tq,tx,ty,tz,ua,ub,uc,ud,ue,uf,ug,uh,ui,uj,uk),ORDERS(tw,ul,um,un,uo,'4-NOT SPECIFIED',up,uq,ur)
+Constraint has 3 predicates
+Constraint targetting 4% restrictivity
+Constraint touches 8583 rows
+Rewriting query with constraint took 1 miliseconds
+SELECT LINEITEM0.L_EXTENDEDPRICE 
+FROM PART PART0, LINEITEM LINEITEM0 
+WHERE PART0.P_PARTKEY = LINEITEM0.L_PARTKEY
+AND PART0.P_CONTAINER = 'WRAP PKG'
+AND PART0.P_BRAND = 'Brand#54'
+AND NOT EXISTS(SELECT *
+FROM PART PART1, ORDERS ORDERS0 
+WHERE ORDERS0.O_ORDERKEY = LINEITEM0.L_ORDERKEY
+AND PART1.P_PARTKEY = PART0.P_PARTKEY
+AND PART1.P_CONTAINER = 'WRAP PKG'
+AND PART1.P_MFGR = 'Manufacturer#5'
+AND PART1.P_BRAND = 'Brand#54'
+AND ORDERS0.O_ORDERPRIORITY = '4-NOT SPECIFIED'
+)
+
+Executing the rewritten query results in 34203 rows.
+
+Planning: 
+[17.796, 17.079, 18.049, 19.155, 21.821]
+Execution: 
+[177821.42, 177647.16, 178743.02, 177777.38, 178056.6]
+
+
+

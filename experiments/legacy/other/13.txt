@@ -1,0 +1,62 @@
+Query Q(cpb,cpc) :- ORDERS(cpc,cpb,cpd,cpe,cpf,cpg,cph,cpi,cpj),CUSTOMER(cpb,cpk,cpl,cpm,cpn,cpo,cpp,cpq)
+
+SELECT ORDERS0.O_CUSTKEY, ORDERS0.O_ORDERKEY 
+FROM ORDERS ORDERS0, CUSTOMER CUSTOMER0 
+WHERE ORDERS0.O_CUSTKEY = CUSTOMER0.C_CUSTKEY
+
+
+Parsing query took 5 miliseconds
+Query touches 10500000 rows
+Planning: 
+[8.994, 6.498, 8.457, 7.996, 38.196]
+Execution: 
+[48846.844, 51586.54, 49637.137, 50761.445, 48482.56]
+
+
+
+For constraint Q(afh) :- ORDERS(afh,afi,afj,afk,afl,afm,afn,afo,afp),LINEITEM(afh,afq,afr,afs,aft,afu,afv,afw,'N',afx,afy,afz,aga,agb,agc,agd)
+Constraint has 2 predicates
+Constraint targetting 50.7% restrictivity
+Constraint touches 21269304 rows
+Rewriting query with constraint took 0 miliseconds
+SELECT ORDERS0.O_CUSTKEY, ORDERS0.O_ORDERKEY 
+FROM ORDERS ORDERS0, CUSTOMER CUSTOMER0 
+WHERE ORDERS0.O_CUSTKEY = CUSTOMER0.C_CUSTKEY
+AND NOT EXISTS(SELECT *
+FROM LINEITEM LINEITEM0 
+WHERE LINEITEM0.L_ORDERKEY = ORDERS0.O_ORDERKEY
+AND LINEITEM0.L_RETURNFLAG = 'N'
+)
+
+Executing the rewritten query results in 5042658 rows.
+
+Planning: 
+[16.243, 16.84, 18.851, 19.441, 16.857]
+Execution: 
+[229697.28, 228507.34, 229701.6, 229727.88, 229475.42]
+
+
+
+For constraint Q(age) :- ORDERS(age,agf,agg,agh,agi,agj,agk,agl,agm),LINEITEM(age,agn,ago,7,agp,agq,agr,ags,agt,agu,agv,agw,agx,agy,agz,aha)
+Constraint has 2 predicates
+Constraint targetting 3.6% restrictivity
+Constraint touches 1498557 rows
+Rewriting query with constraint took 0 miliseconds
+SELECT ORDERS0.O_CUSTKEY, ORDERS0.O_ORDERKEY 
+FROM ORDERS ORDERS0, CUSTOMER CUSTOMER0 
+WHERE ORDERS0.O_CUSTKEY = CUSTOMER0.C_CUSTKEY
+AND NOT EXISTS(SELECT *
+FROM LINEITEM LINEITEM0 
+WHERE LINEITEM0.L_ORDERKEY = ORDERS0.O_ORDERKEY
+AND LINEITEM0.L_LINENUMBER = 7
+)
+
+Executing the rewritten query results in 9001443 rows.
+
+Planning: 
+[16.674, 15.298, 17.584, 13.702, 11.758]
+Execution: 
+[210710.83, 208790.69, 209063.75, 208871.19, 208900.69]
+
+
+

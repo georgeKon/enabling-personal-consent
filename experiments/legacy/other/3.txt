@@ -1,0 +1,61 @@
+Query Q(chf,cgt,cgn,cgq) :- ORDERS(cgn,cgm,cgo,cgp,cgq,cgr,cgs,cgt,cgu),CUSTOMER(cgm,cgv,cgw,cgx,cgy,cgz,'MACHINERY',cha),LINEITEM(cgn,chb,chc,chd,che,chf,chg,chh,chi,chj,chk,chl,chm,chn,cho,chp)
+
+SELECT LINEITEM0.L_EXTENDEDPRICE, ORDERS0.O_SHIPPRIORITY, ORDERS0.O_ORDERKEY, ORDERS0.O_ORDERDATE 
+FROM ORDERS ORDERS0, CUSTOMER CUSTOMER0, LINEITEM LINEITEM0 
+WHERE ORDERS0.O_CUSTKEY = CUSTOMER0.C_CUSTKEY
+AND ORDERS0.O_ORDERKEY = LINEITEM0.L_ORDERKEY
+AND CUSTOMER0.C_MKTSEGMENT = 'MACHINERY'
+
+
+Parsing query took 11 miliseconds
+Query touches 8399634 rows
+Planning: 
+[20.266, 11.754, 16.527, 17.058, 16.38]
+Execution: 
+[263508.7, 260336.4, 265468.34, 260848.38, 259743.69]
+
+
+
+For constraint Q(bbd,bbg,bbj) :- ORDERS(bbd,bbe,'O',bbf,bbg,bbh,bbi,bbj,bbk)
+Constraint targetting 48.8% restrictivityConstraint touches 5116731 rows
+Rewriting query with constraint took 6 miliseconds
+SELECT LINEITEM0.L_EXTENDEDPRICE, ORDERS0.O_SHIPPRIORITY, ORDERS0.O_ORDERKEY, ORDERS0.O_ORDERDATE 
+FROM ORDERS ORDERS0, CUSTOMER CUSTOMER0, LINEITEM LINEITEM0 
+WHERE ORDERS0.O_CUSTKEY = CUSTOMER0.C_CUSTKEY
+AND ORDERS0.O_ORDERKEY = LINEITEM0.L_ORDERKEY
+AND CUSTOMER0.C_MKTSEGMENT = 'MACHINERY'
+AND (
+'O' != ORDERS0.O_ORDERSTATUS)
+Executing the rewritten query results in 4328714 rows.
+
+Planning: 
+[23.237, 18.372, 17.583, 13.149, 20.614]
+Execution: 
+[255083.38, 253602.27, 263723.28, 259856.88, 265062.8]
+
+
+
+For constraint Q(bbp) :- LINEITEM(bbl,bbm,bbn,6,bbo,bbp,bbq,bbr,bbs,bbt,bbu,bbv,bbw,bbx,bby,bbz),PART(bbm,bca,'Manufacturer#4',bcb,bcc,bcd,bce,bcf,bcg)
+Constraint targetting 1.42% restrictivityConstraint touches 601181 rows
+Rewriting query with constraint took 0 miliseconds
+SELECT LINEITEM0.L_EXTENDEDPRICE, ORDERS0.O_SHIPPRIORITY, ORDERS0.O_ORDERKEY, ORDERS0.O_ORDERDATE 
+FROM ORDERS ORDERS0, CUSTOMER CUSTOMER0, LINEITEM LINEITEM0 
+WHERE ORDERS0.O_CUSTKEY = CUSTOMER0.C_CUSTKEY
+AND ORDERS0.O_ORDERKEY = LINEITEM0.L_ORDERKEY
+AND CUSTOMER0.C_MKTSEGMENT = 'MACHINERY'
+AND NOT EXISTS(SELECT *
+FROM PART PART0 
+WHERE PART0.P_PARTKEY = LINEITEM0.L_PARTKEY
+AND PART0.P_MFGR = 'Manufacturer#4'
+AND 6 = LINEITEM0.L_LINENUMBER
+)
+
+Executing the rewritten query results in 8279389 rows.
+
+Planning: 
+[16.006, 22.205, 20.7, 19.965, 22.938]
+Execution: 
+[290337.75, 286093.88, 292747.3, 292940.97, 282477.9]
+
+
+

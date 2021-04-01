@@ -1,0 +1,55 @@
+Query Q(chv) :- ORDERS(chq,chr,chs,cht,chu,chv,chw,chx,chy)
+
+SELECT ORDERS0.O_ORDERPRIORITY 
+FROM ORDERS ORDERS0 
+
+
+Parsing query took 5 miliseconds
+Query touches 10500000 rows
+Planning: 
+[2.374, 3.054, 3.45, 1.738, 2.204]
+Execution: 
+[35106.11, 35150.82, 35113.18, 35109.793, 35101.426]
+
+
+
+For constraint Q(gr) :- ORDERS(gm,gn,go,gp,gq,gr,gs,gt,gu),LINEITEM(gm,gv,gw,gx,gy,gz,ha,hb,'N',hc,hd,he,hf,hg,hh,hi)
+Constraint targetting 50.7% restrictivityConstraint touches 21269304 rows
+Rewriting query with constraint took 0 miliseconds
+SELECT ORDERS0.O_ORDERPRIORITY 
+FROM ORDERS ORDERS0 
+WHERE NOT EXISTS(SELECT *
+FROM LINEITEM LINEITEM0 
+WHERE LINEITEM0.L_ORDERKEY = ORDERS0.O_ORDERKEY
+AND LINEITEM0.L_RETURNFLAG = 'N'
+)
+
+Executing the rewritten query results in 5042658 rows.
+
+Planning: 
+[15.436, 16.405, 18.88, 11.797, 18.658]
+Execution: 
+[225305.9, 223815.17, 225925.12, 225593.77, 223356.81]
+
+
+
+For constraint Q(ho) :- ORDERS(hj,hk,hl,hm,hn,ho,hp,hq,hr),LINEITEM(hj,hs,ht,7,hu,hv,hw,hx,hy,hz,ia,ib,ic,id,ie,if)
+Constraint targetting 3.6% restrictivityConstraint touches 1498557 rows
+Rewriting query with constraint took 0 miliseconds
+SELECT ORDERS0.O_ORDERPRIORITY 
+FROM ORDERS ORDERS0 
+WHERE NOT EXISTS(SELECT *
+FROM LINEITEM LINEITEM0 
+WHERE LINEITEM0.L_ORDERKEY = ORDERS0.O_ORDERKEY
+AND LINEITEM0.L_LINENUMBER = 7
+)
+
+Executing the rewritten query results in 9001443 rows.
+
+Planning: 
+[9.486, 11.43, 26.755, 19.957, 10.76]
+Execution: 
+[195415.39, 195404.58, 195560.06, 195429.78, 195455.14]
+
+
+

@@ -1,0 +1,30 @@
+Query Q(mvr,mvq) :- ORDERS(mvr,mvq,mvs,mvt,mvu,mvv,mvw,mvx,mvy),CUSTOMER(mvq,mvz,mwa,mwb,mwc,mwd,mwe,mwf)
+
+SELECT ORDERS0.O_ORDERKEY, ORDERS0.O_CUSTKEY 
+FROM ORDERS ORDERS0, CUSTOMER CUSTOMER0 
+WHERE ORDERS0.O_CUSTKEY = CUSTOMER0.C_CUSTKEY
+
+
+Parsing query took 2 miliseconds
+Query touches 10500000 rows
+Planning: 
+[9.181, 7.445, 8.158, 8.435, 8.567]
+Execution: 
+[51843.387, 50639.227, 49221.6, 50889.715, 49828.598]
+
+Running the query against 500 of the 500 no-join constraint
+Rewriting query with 500 of the  500 no-join constraints took 11 miliseconds
+For this query, rewriting with 500 of the 500 no-join constraints produced 0 successful unifications.
+SELECT ORDERS0.O_ORDERKEY, ORDERS0.O_CUSTKEY 
+FROM ORDERS ORDERS0, CUSTOMER CUSTOMER0 
+WHERE ORDERS0.O_CUSTKEY = CUSTOMER0.C_CUSTKEY
+
+Executing the rewritten 500 of the 500 no-join query results in 10500000 rows.
+
+Planning: 
+[9.037, 8.716, 10.324, 6.016, 8.376]
+Execution: 
+[51901.434, 51567.68, 49372.027, 49768.305, 52105.684]
+
+
+

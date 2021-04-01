@@ -1,0 +1,2 @@
+For constraint Q(uw,va,vb) :- LINEITEM(us,ut,uu,uv,uw,ux,uy,uz,va,vb,vc,vd,ve,vf,vg,vh),ORDERS(us,vi,'F',vj,vk,vl,vm,vn,vo),CUSTOMER(vp,vq,vr,vs,vt,vu,vv,vw)
+Constraint touches -1 rows

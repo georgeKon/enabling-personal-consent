@@ -1,0 +1,4 @@
+Q(q,a,r,s,t,u,h,k) :- PARTSUPP(a,b,e,f,g),NATION(c,h,d,i),PART(a,j,k,l,m,9,n,o,p),SUPPLIER(b,q,r,c,s,t,u),REGION(d,'MIDDLE EAST',v),LINEITEM(w,a,b,x,y,z,aa,ab,ap,'O',ac,ad,ae,af,ag,ah),CUSTOMER(ai,aj,ak,c,am,an,ao,ap)
+Q(q,a,r,s,t,u,h,k) :- PARTSUPP(a,b,e,f,g),NATION(c,h,d,i),PART(a,j,k,l,m,9,n,o,p),SUPPLIER(b,q,r,c,s,t,u),REGION(d,'MIDDLE EAST',v),CUSTOMER(ai,aj,ak,c,am,an,'AUTOMOBILE',ap),ORDERS(aq,ai,ar,as,at,'5-LOW',au,av,aw)
+Q(a) :- PARTSUPP(a,b,e,f,g),LINEITEM(w,a,b,x,y,z,aa,ab,ap,'O',ac,ad,ae,af,ag,ah)
+Q(h) :- NATION(c,h,d,i),CUSTOMER(ai,aj,ak,c,am,an,'AUTOMOBILE',ap),ORDERS(aq,ai,ar,as,at,'5-LOW',au,av,aw)

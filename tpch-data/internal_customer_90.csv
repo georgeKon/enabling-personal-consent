@@ -1,0 +1,9 @@
+internal
+customer,c_custkey,90
+customer,c_name,90
+customer,c_address,90
+customer,c_nationkey,90
+customer,c_phone,90
+customer,c_acctbal,90
+customer,c_mktsegment,90
+customer,c_comment,90

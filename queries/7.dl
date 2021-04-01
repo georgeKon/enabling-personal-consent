@@ -1,0 +1,1 @@
+Q(ae,aj) :- NATION(d,'INDONESIA',f,g),NATION(e,'MOROCCO',h,i),ORDERS(b,c,j,k,l,m,n,o,p),CUSTOMER(c,q,r,e,s,t,u,v),SUPPLIER(a,w,x,d,y,z,aa),LINEITEM(b,ab,a,ac,ad,ae,af,ag,ah,ai,aj,ak,al,am,an,ao)

@@ -1,0 +1,4 @@
+Q(p,a,q,s,d,n,o) :- NATION(c,d,e,f),ORDERS(b,a,g,h,i,j,k,l,m),CUSTOMER(a,n,o,c,p,q,r,s),LINEITEM(b,t,u,v,w,x,y,z,'R','F',ab,ac,ad,ae,af,ag), SUPPLIER(ah,ai,aj,c,ak,al,am), PARTSUPP(an,ah,ao,ap,aq)
+Q(p,a,q,s,d,n,o) :- NATION(c,d,e,f),ORDERS(b,a,g,h,i,'1-URGENT',k,l,m),CUSTOMER(a,n,o,c,p,q,r,s),LINEITEM(b,t,u,v,w,x,y,z,'R',aa,ab,ac,ad,ae,af,ag), REGION(e,'EUROPE',ah), SUPPLIER(anssh:r,ai,aj,c,ak,al,am)
+Q(a) :- ORDERS(b,a,g,h,i,j,k,l,m), LINEITEM(b,t,u,v,w,x,y,z,'R','F',ab,ac,ad,ae,af,ag)
+Q(p,a,q,s,d,n,o) :- NATION(c,d,e,f),ORDERS(b,a,g,h,i,'1-URGENT',k,l,m),CUSTOMER(a,n,o,c,p,q,r,s), REGION(e,'EUROPE',ah)

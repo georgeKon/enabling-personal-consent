@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="rewriting_time">
+    <output-path>$PROJECT_DIR$/out/artifacts/rewriting_time</output-path>
+    <root id="archive" name="postgres.jar">
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/src/rwt/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="module-output" name="dbconsent" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/libaries/json-20180130.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/libaries/postgresql-42.2.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/libaries/antlr-complete.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

@@ -1,0 +1,30 @@
+For constraint Q(aoq,apd,apc,aou,apf,ape,aph) :- NATION(aop,aoq,aor,aos),ORDERS(aot,aou,aov,aow,aox,aoy,aoz,apa,apb),CUSTOMER(aou,apc,apd,aop,ape,apf,apg,aph),LINEITEM(aot,api,apj,apk,apl,apm,apn,apo,'R','F',app,apq,apr,aps,apt,apu),SUPPLIER(apv,apw,apx,aop,apy,apz,aqa),PARTSUPP(aqb,apv,aqc,aqd,aqe)
+Constraint has 6 predicates
+Constraint targetting 49.9% restrictivity
+Constraint touches -1 rows
+Rewriting query with constraint took 1698613 miliseconds
+SELECT NATION0.N_NAME, CUSTOMER0.C_ADDRESS, CUSTOMER0.C_NAME, CUSTOMER0.C_ACCTBAL, CUSTOMER0.C_PHONE, CUSTOMER0.C_COMMENT, ORDERS0.O_CUSTKEY 
+FROM NATION NATION0, ORDERS ORDERS0, CUSTOMER CUSTOMER0, LINEITEM LINEITEM0 
+WHERE ORDERS0.O_ORDERKEY = LINEITEM0.L_ORDERKEY
+AND ORDERS0.O_CUSTKEY = CUSTOMER0.C_CUSTKEY
+AND NATION0.N_NATIONKEY = CUSTOMER0.C_NATIONKEY
+AND LINEITEM0.L_RETURNFLAG = 'R'
+AND NOT EXISTS(SELECT *
+FROM ORDERS ORDERS1, LINEITEM LINEITEM1, SUPPLIER SUPPLIER0, PARTSUPP PARTSUPP0 
+WHERE ORDERS1.O_ORDERKEY = LINEITEM1.L_ORDERKEY
+AND SUPPLIER0.S_SUPPKEY = PARTSUPP0.PS_SUPPKEY
+AND ORDERS1.O_CUSTKEY = ORDERS0.O_CUSTKEY
+AND SUPPLIER0.S_NATIONKEY = NATION0.N_NATIONKEY
+AND LINEITEM1.L_LINESTATUS = 'F'
+AND LINEITEM1.L_RETURNFLAG = 'R'
+)
+
+Executing the rewritten query results in -1 rows.
+
+Planning: 
+[0.0, 0.0, 0.0, 0.0, 0.0]
+Execution: 
+[0.0, 0.0, 0.0, 0.0, 0.0]
+
+
+

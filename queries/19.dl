@@ -1,0 +1,1 @@
+Q(m) :- PART(a,b,c,'Brand#54',d,e,f,g,h),LINEITEM(i,a,j,k,l,m,n,o,p,q,r,s,t,'DELIVER IN PERSON',u,v)

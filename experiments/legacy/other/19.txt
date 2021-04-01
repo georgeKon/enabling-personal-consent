@@ -1,0 +1,60 @@
+Query Q(csy) :- PART(csm,csn,cso,'Brand#54',csp,csq,csr,css,cst),LINEITEM(csu,csm,csv,csw,csx,csy,csz,cta,ctb,ctc,ctd,cte,ctf,'DELIVER IN PERSON',ctg,cth)
+
+SELECT LINEITEM0.L_EXTENDEDPRICE 
+FROM PART PART0, LINEITEM LINEITEM0 
+WHERE PART0.P_PARTKEY = LINEITEM0.L_PARTKEY
+AND LINEITEM0.L_SHIPINSTRUCT = 'DELIVER IN PERSON'
+AND PART0.P_BRAND = 'Brand#54'
+
+
+Parsing query took 2 miliseconds
+Query touches 420031 rows
+Planning: 
+[12.95, 12.242, 13.218, 10.731, 11.02]
+Execution: 
+[159746.52, 159739.53, 159835.7, 159795.62, 159692.2]
+
+
+
+For constraint Q(cap) :- LINEITEM(cak,cal,cam,can,cao,cap,caq,car,'N',cas,cat,cau,cav,'DELIVER IN PERSON',caw,cax)
+Constraint has 1 predicates
+Constraint targetting 50.7% restrictivity
+Constraint touches 5318439 rows
+Rewriting query with constraint took 0 miliseconds
+SELECT LINEITEM0.L_EXTENDEDPRICE 
+FROM PART PART0, LINEITEM LINEITEM0 
+WHERE PART0.P_PARTKEY = LINEITEM0.L_PARTKEY
+AND LINEITEM0.L_SHIPINSTRUCT = 'DELIVER IN PERSON'
+AND PART0.P_BRAND = 'Brand#54'
+AND (
+'N' != LINEITEM0.L_RETURNFLAG)
+Executing the rewritten query results in 206940 rows.
+
+Planning: 
+[12.194, 11.509, 10.928, 9.909, 14.245]
+Execution: 
+[159794.84, 159695.75, 159655.08, 159763.62, 159734.14]
+
+
+
+For constraint Q(cbc) :- LINEITEM(cay,caz,cba,1,cbb,cbc,cbd,0.02,cbe,cbf,cbg,cbh,cbi,'DELIVER IN PERSON',cbj,cbk)
+Constraint has 1 predicates
+Constraint targetting 2.8% restrictivity
+Constraint touches 291801 rows
+Rewriting query with constraint took 0 miliseconds
+SELECT LINEITEM0.L_EXTENDEDPRICE 
+FROM PART PART0, LINEITEM LINEITEM0 
+WHERE PART0.P_PARTKEY = LINEITEM0.L_PARTKEY
+AND LINEITEM0.L_SHIPINSTRUCT = 'DELIVER IN PERSON'
+AND PART0.P_BRAND = 'Brand#54'
+AND (
+0.02 != LINEITEM0.L_TAXOR 1 != LINEITEM0.L_LINENUMBER)
+Executing the rewritten query results in -1 rows.
+
+Planning: 
+[0.0, 0.0, 0.0, 0.0, 0.0]
+Execution: 
+[0.0, 0.0, 0.0, 0.0, 0.0]
+
+
+

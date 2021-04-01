@@ -1,0 +1,66 @@
+Query Q() :- ORDERS(coe,cof,cog,coh,coi,coj,cok,col,com),LINEITEM(coe,con,coo,cop,coq,cor,cos,cot,cou,cov,cow,cox,coy,coz,'FOB',cpa)
+
+SELECT *
+FROM ORDERS ORDERS0, LINEITEM LINEITEM0 
+WHERE ORDERS0.O_ORDERKEY = LINEITEM0.L_ORDERKEY
+AND LINEITEM0.L_SHIPMODE = 'FOB'
+
+
+Parsing query took 1 miliseconds
+Query touches 5998867 rows
+Planning: 
+[11.828, 11.371, 22.554, 14.794, 21.652]
+Execution: 
+[276577.62, 272815.03, 272972.2, 272710.56, 271685.0]
+
+
+
+For constraint Q() :- ORDERS(cdv,cdw,cdx,cdy,cdz,cea,ceb,cec,ced),LINEITEM(cdv,cee,cef,ceg,ceh,cei,cej,cek,'N',cel,cem,cen,ceo,cep,'FOB',ceq)
+Constraint has 2 predicates
+Constraint targetting 50.7% restrictivity
+Constraint touches 3038380 rows
+Rewriting query with constraint took 0 miliseconds
+SELECT *
+FROM ORDERS ORDERS0, LINEITEM LINEITEM0 
+WHERE ORDERS0.O_ORDERKEY = LINEITEM0.L_ORDERKEY
+AND LINEITEM0.L_SHIPMODE = 'FOB'
+AND NOT EXISTS(SELECT *
+FROM ORDERS ORDERS1 
+WHERE ORDERS1.O_ORDERKEY = ORDERS0.O_ORDERKEY
+AND 'N' = LINEITEM0.L_RETURNFLAG
+)
+AND NOT EXISTS(SELECT *
+FROM LINEITEM LINEITEM1 
+WHERE LINEITEM1.L_ORDERKEY = ORDERS0.O_ORDERKEY
+AND LINEITEM1.L_RETURNFLAG = 'N'
+AND LINEITEM1.L_SHIPMODE = 'FOB'
+)
+
+Executing the rewritten query results in 2934764 rows.
+
+Planning: 
+[13.826, 20.454, 15.536, 13.704, 16.358]
+Execution: 
+[296217.56, 302427.28, 289391.7, 296582.47, 303830.12]
+
+
+
+For constraint Q() :- CUSTOMER(cer,ces,cet,ceu,cev,cew,'MACHINERY',cex),NATION(ceu,cey,0,cez)
+Constraint has 2 predicates
+Constraint targetting 4% restrictivity
+Constraint touches 41935 rows
+Rewriting query with constraint took 0 miliseconds
+SELECT *
+FROM ORDERS ORDERS0, LINEITEM LINEITEM0 
+WHERE ORDERS0.O_ORDERKEY = LINEITEM0.L_ORDERKEY
+AND LINEITEM0.L_SHIPMODE = 'FOB'
+
+Executing the rewritten query results in 5998867 rows.
+
+Planning: 
+[13.263, 18.611, 11.845, 18.815, 17.581]
+Execution: 
+[271411.4, 270143.22, 281208.53, 271817.75, 276639.53]
+
+
+

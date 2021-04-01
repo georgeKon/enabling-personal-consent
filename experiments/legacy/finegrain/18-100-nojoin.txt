@@ -1,0 +1,36 @@
+Query Q(mwk,mwj,mwz,mwp,mwg,mwh) :- ORDERS(mwh,mwg,mwi,mwj,mwk,mwl,mwm,mwn,mwo),CUSTOMER(mwg,mwp,mwq,mwr,mws,mwt,mwu,mwv),LINEITEM(mwh,mww,mwx,mwy,mwz,mxa,mxb,mxc,mxd,mxe,mxf,mxg,mxh,mxi,mxj,mxk)
+
+SELECT ORDERS0.O_ORDERDATE, ORDERS0.O_TOTALPRICE, LINEITEM0.L_QUANTITY, CUSTOMER0.C_NAME, ORDERS0.O_CUSTKEY, ORDERS0.O_ORDERKEY 
+FROM ORDERS ORDERS0, CUSTOMER CUSTOMER0, LINEITEM LINEITEM0 
+WHERE ORDERS0.O_CUSTKEY = CUSTOMER0.C_CUSTKEY
+AND ORDERS0.O_ORDERKEY = LINEITEM0.L_ORDERKEY
+
+
+Parsing query took 2 miliseconds
+Query touches 41995307 rows
+Planning: 
+[14.94, 16.186, 13.281, 19.103, 45.391]
+Execution: 
+[301480.6, 310712.22, 302825.66, 300474.06, 302848.22]
+
+Running the query against 100 of the 500 no-join constraint
+Rewriting query with 100 of the  500 no-join constraints took 2 miliseconds
+For this query, rewriting with 100 of the 500 no-join constraints produced 4 successful unifications.
+SELECT ORDERS0.O_ORDERDATE, ORDERS0.O_TOTALPRICE, LINEITEM0.L_QUANTITY, CUSTOMER0.C_NAME, ORDERS0.O_CUSTKEY, ORDERS0.O_ORDERKEY 
+FROM ORDERS ORDERS0, CUSTOMER CUSTOMER0, LINEITEM LINEITEM0 
+WHERE ORDERS0.O_CUSTKEY = CUSTOMER0.C_CUSTKEY
+AND ORDERS0.O_ORDERKEY = LINEITEM0.L_ORDERKEY
+AND (
+2530307 != ORDERS0.O_CUSTKEY)AND (
+4285853 != ORDERS0.O_CUSTKEY)AND (
+3473106 != ORDERS0.O_CUSTKEY)AND (
+3367342 != ORDERS0.O_CUSTKEY)
+Executing the rewritten 100 of the 500 no-join query results in 41995307 rows.
+
+Planning: 
+[21.633, 14.777, 10.715, 15.878, 17.832]
+Execution: 
+[303986.34, 306486.3, 300502.62, 310768.53, 305150.1]
+
+
+

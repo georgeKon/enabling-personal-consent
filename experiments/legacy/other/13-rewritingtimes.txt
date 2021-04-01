@@ -1,0 +1,37 @@
+Query Q(fyb,fya) :- ORDERS(fyb,fya,fyc,fyd,fye,fyf,fyg,fyh,fyi),CUSTOMER(fya,fyj,fyk,fyl,fym,fyn,fyo,fyp)
+
+For constraint Q(acz) :- ORDERS(acz,ada,adb,adc,add,ade,adf,adg,adh),CUSTOMER(ada,adi,adj,adk,adl,adm,adn,ado),LINEITEM(acz,adp,adq,adr,ads,adt,adu,adv,'N',adw,adx,ady,adz,aea,aeb,aec)
+Constraint has 3 predicates
+Constraint targetting 50.7% restrictivity
+Rewriting query with constraint took 54201 nanoseconds
+Rewriting query with constraint produced 1 successful unifications.
+For constraint Q(aed) :- ORDERS(aed,aee,aef,aeg,aeh,aei,aej,aek,ael),CUSTOMER(aee,aem,aen,aeo,aep,aeq,aer,aes),LINEITEM(aed,aet,aeu,7,aev,aew,aex,aey,aez,afa,afb,afc,afd,afe,aff,afg)
+Constraint has 3 predicates
+Constraint targetting 3.6% restrictivity
+Rewriting query with constraint took 46700 nanoseconds
+Rewriting query with constraint produced 1 successful unifications.
+For constraint Q(afh) :- ORDERS(afh,afi,afj,afk,afl,afm,afn,afo,afp),LINEITEM(afh,afq,afr,afs,aft,afu,afv,afw,'N',afx,afy,afz,aga,agb,agc,agd)
+Constraint has 2 predicates
+Constraint targetting 50.7% restrictivity
+Rewriting query with constraint took 55800 nanoseconds
+Rewriting query with constraint produced 1 successful unifications.
+For constraint Q(age) :- ORDERS(age,agf,agg,agh,agi,agj,agk,agl,agm),LINEITEM(age,agn,ago,7,agp,agq,agr,ags,agt,agu,agv,agw,agx,agy,agz,aha)
+Constraint has 2 predicates
+Constraint targetting 3.6% restrictivity
+Rewriting query with constraint took 61901 nanoseconds
+Rewriting query with constraint produced 1 successful unifications.
+Running the query against 10 constraints
+Rewriting query with 10 constraints took 190601 nanoseconds
+For this query, rewriting with 10 constraints produced 3 successful unifications.
+Running the query against 20 constraints
+Rewriting query with 20 constraints took 636304 nanoseconds
+For this query, rewriting with 20 constraints produced 5 successful unifications.
+Running the query against 40 constraints
+Rewriting query with 40 constraints took 1740311 nanoseconds
+For this query, rewriting with 40 constraints produced 7 successful unifications.
+Running the query against 60 constraints
+Rewriting query with 60 constraints took 2175913 nanoseconds
+For this query, rewriting with 60 constraints produced 9 successful unifications.
+Running the query against 76 constraints
+Rewriting query with 76 constraints took 3335821 nanoseconds
+For this query, rewriting with 76 constraints produced 11 successful unifications.

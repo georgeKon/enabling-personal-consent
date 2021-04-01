@@ -1,0 +1,1 @@
+Q(p,a,q,s,d,n,o) :- NATION(c,d,e,f),ORDERS(b,a,g,h,i,j,k,l,m),CUSTOMER(a,n,o,c,p,q,r,s),LINEITEM(b,t,u,v,w,x,y,z,'R',aa,ab,ac,ad,ae,af,ag)

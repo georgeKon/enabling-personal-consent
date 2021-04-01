@@ -1,0 +1,1 @@
+Q(a,b) :- ORDERS(b,a,c,d,e,f,g,h,i),CUSTOMER(a,j,k,l,m,n,o,p)

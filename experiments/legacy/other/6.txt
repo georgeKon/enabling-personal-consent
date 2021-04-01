@@ -1,0 +1,60 @@
+Query Q(cgt) :- LINEITEM(cgo,cgp,cgq,cgr,cgs,cgt,cgu,cgv,cgw,cgx,cgy,cgz,cha,chb,chc,chd)
+
+SELECT LINEITEM0.L_EXTENDEDPRICE 
+FROM LINEITEM LINEITEM0 
+
+
+Parsing query took 6 miliseconds
+Query touches 41995307 rows
+Planning: 
+[2.743, 3.06, 2.701, 4.913, 4.251]
+Execution: 
+[154511.06, 154501.58, 154514.45, 154448.3, 154547.02]
+
+
+
+For constraint Q(aiz) :- LINEITEM(aiu,aiv,aiw,aix,aiy,aiz,aja,ajb,ajc,ajd,aje,ajf,ajg,ajh,aji,ajj),ORDERS(aiu,ajk,'O',ajl,ajm,ajn,ajo,ajp,ajq)
+Constraint has 2 predicates
+Constraint targetting 48.8% restrictivity
+Constraint touches 20344195 rows
+Rewriting query with constraint took 0 miliseconds
+SELECT LINEITEM0.L_EXTENDEDPRICE 
+FROM LINEITEM LINEITEM0 
+WHERE NOT EXISTS(SELECT *
+FROM ORDERS ORDERS0 
+WHERE ORDERS0.O_ORDERKEY = LINEITEM0.L_ORDERKEY
+AND ORDERS0.O_ORDERSTATUS = 'O'
+)
+
+Executing the rewritten query results in 21651112 rows.
+
+Planning: 
+[18.614, 10.028, 11.552, 18.483, 10.355]
+Execution: 
+[264407.5, 267081.38, 263938.44, 265424.56, 265943.56]
+
+
+
+For constraint Q(ajv) :- LINEITEM(ajr,ajs,ajt,4,aju,ajv,ajw,ajx,ajy,ajz,aka,akb,akc,akd,ake,akf),ORDERS(ajr,akg,akh,aki,akj,'2-HIGH',akk,akl,akm)
+Constraint has 2 predicates
+Constraint targetting 2.86% restrictivity
+Constraint touches 1200754 rows
+Rewriting query with constraint took 0 miliseconds
+SELECT LINEITEM0.L_EXTENDEDPRICE 
+FROM LINEITEM LINEITEM0 
+WHERE NOT EXISTS(SELECT *
+FROM ORDERS ORDERS0 
+WHERE ORDERS0.O_ORDERKEY = LINEITEM0.L_ORDERKEY
+AND ORDERS0.O_ORDERPRIORITY = '2-HIGH'
+AND 4 = LINEITEM0.L_LINENUMBER
+)
+
+Executing the rewritten query results in 40794553 rows.
+
+Planning: 
+[13.773, 14.414, 23.302, 19.321, 18.052]
+Execution: 
+[267906.75, 263676.4, 266820.47, 266097.12, 267298.75]
+
+
+

@@ -1,0 +1,62 @@
+Query Q(csa,crq,crh,cri,crl,crk) :- ORDERS(cri,crh,crj,crk,crl,crm,crn,cro,crp),CUSTOMER(crh,crq,crr,crs,crt,cru,crv,crw),LINEITEM(cri,crx,cry,crz,csa,csb,csc,csd,cse,csf,csg,csh,csi,csj,csk,csl)
+
+SELECT LINEITEM0.L_QUANTITY, CUSTOMER0.C_NAME, ORDERS0.O_CUSTKEY, ORDERS0.O_ORDERKEY, ORDERS0.O_ORDERDATE, ORDERS0.O_TOTALPRICE 
+FROM ORDERS ORDERS0, CUSTOMER CUSTOMER0, LINEITEM LINEITEM0 
+WHERE ORDERS0.O_CUSTKEY = CUSTOMER0.C_CUSTKEY
+AND ORDERS0.O_ORDERKEY = LINEITEM0.L_ORDERKEY
+
+
+Parsing query took 2 miliseconds
+Query touches 41995307 rows
+Planning: 
+[18.134, 16.42, 21.153, 19.241, 21.537]
+Execution: 
+[304613.62, 299215.56, 299562.75, 299423.9, 302619.06]
+
+
+
+For constraint Q(brd) :- LINEITEM(brd,bre,brf,brg,brh,bri,brj,brk,brl,'F',brm,brn,bro,brp,brq,brr)
+Constraint has 1 predicates
+Constraint targetting 49.9% restrictivity
+Constraint touches 20996035 rows
+Rewriting query with constraint took 0 miliseconds
+SELECT LINEITEM0.L_QUANTITY, CUSTOMER0.C_NAME, ORDERS0.O_CUSTKEY, ORDERS0.O_ORDERKEY, ORDERS0.O_ORDERDATE, ORDERS0.O_TOTALPRICE 
+FROM ORDERS ORDERS0, CUSTOMER CUSTOMER0, LINEITEM LINEITEM0 
+WHERE ORDERS0.O_CUSTKEY = CUSTOMER0.C_CUSTKEY
+AND ORDERS0.O_ORDERKEY = LINEITEM0.L_ORDERKEY
+AND (
+'F' != LINEITEM0.L_LINESTATUS)
+Executing the rewritten query results in 20999272 rows.
+
+Planning: 
+[12.186, 21.694, 20.336, 20.831, 25.444]
+Execution: 
+[269406.28, 266141.2, 266662.06, 268987.22, 268675.6]
+
+
+
+For constraint Q(brs,brt) :- CUSTOMER(brs,brt,bru,brv,brw,brx,'BUILDING',bry),NATION(brv,brz,5,bsa)
+Constraint has 2 predicates
+Constraint targetting 4% restrictivity
+Constraint touches 0 rows
+Rewriting query with constraint took 0 miliseconds
+SELECT LINEITEM0.L_QUANTITY, CUSTOMER0.C_NAME, ORDERS0.O_CUSTKEY, ORDERS0.O_ORDERKEY, ORDERS0.O_ORDERDATE, ORDERS0.O_TOTALPRICE 
+FROM ORDERS ORDERS0, CUSTOMER CUSTOMER0, LINEITEM LINEITEM0 
+WHERE ORDERS0.O_CUSTKEY = CUSTOMER0.C_CUSTKEY
+AND ORDERS0.O_ORDERKEY = LINEITEM0.L_ORDERKEY
+AND NOT EXISTS(SELECT *
+FROM NATION NATION0 
+WHERE NATION0.N_NATIONKEY = CUSTOMER0.C_NATIONKEY
+AND NATION0.N_REGIONKEY = 5
+AND 'BUILDING' = CUSTOMER0.C_MKTSEGMENT
+)
+
+Executing the rewritten query results in 41995307 rows.
+
+Planning: 
+[26.049, 21.533, 22.083, 17.923, 13.159]
+Execution: 
+[302322.38, 298778.0, 300996.2, 307856.3, 296759.2]
+
+
+

@@ -1,0 +1,4 @@
+Q(b) :- ORDERS(b,a,c,d,e,f,g,h,i),CUSTOMER(a,j,k,l,m,n,o,p),LINEITEM(b,q,r,s,t,u,v,w,'N',y,z,aa,ab,ac,ad,ae)
+Q(b) :- ORDERS(b,a,c,d,e,f,g,h,i),CUSTOMER(a,j,k,l,m,n,o,p),LINEITEM(b,q,r,7,t,u,v,w,x,y,z,aa,ab,ac,ad,ae)
+Q(b) :- ORDERS(b,a,c,d,e,f,g,h,i),LINEITEM(b,q,r,s,t,u,v,w,'N',y,z,aa,ab,ac,ad,ae)
+Q(b) :- ORDERS(b,a,c,d,e,f,g,h,i),LINEITEM(b,q,r,7,t,u,v,w,x,y,z,aa,ab,ac,ad,ae)

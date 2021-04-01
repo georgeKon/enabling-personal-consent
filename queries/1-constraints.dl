@@ -1,0 +1,4 @@
+Q(e,i,j) :- LINEITEM(a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p), ORDERS(a,q,'F',r,s,t,u,v,w), CUSTOMER(x,y,z,aa,ab,ac,ad,ae)
+Q(e,f) :- LINEITEM(a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p), ORDERS(a,q,'P',r,s,t,u,v,w), NATION(x,y,z,aa)
+Q(e,j) :- LINEITEM(a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p), ORDERS(a,q,'F',r,s,t,u,v,w)
+Q(i,j) :- LINEITEM(a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p), ORDERS(a,q,'P',r,s,t,u,v,w)

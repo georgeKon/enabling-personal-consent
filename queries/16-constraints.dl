@@ -1,0 +1,4 @@
+Q(h,i,j) :- PARTSUPP(a,b,c,d,e),PART(a,f,g,h,i,j,k,l,m),LINEITEM(n,a,b,o,p,q,r,s,t,'O',v,w,x,y,z,aa),CUSTOMER(z,aa,ab,ac,ad,ae,af,ag)
+Q(h,i,j) :- PARTSUPP(a,b,c,d,e),PART(a,f,'Manufacturer#2',h,i,j,k,l,m),LINEITEM(n,a,b,o,p,q,r,s,t,u,v,w,x,'DELIVER IN PERSON',z,aa),CUSTOMER(z,aa,ab,ac,ad,ae,af,ag)
+Q(h,i,j) :- PARTSUPP(a,b,c,d,e),PART(a,f,g,h,i,j,k,l,m),LINEITEM(n,a,b,o,p,q,r,s,t,'O',v,w,x,y,z,aa)
+Q(h,i,j) :- PARTSUPP(a,b,c,d,e),PART(a,f,'Manufacturer#2',h,i,j,k,l,m),LINEITEM(n,a,b,o,p,q,r,s,t,u,v,w,x,'DELIVER IN PERSON',z,aa)

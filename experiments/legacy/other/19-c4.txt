@@ -1,0 +1,23 @@
+For constraint Q(cbd) :- LINEITEM(caz,cba,cbb,1,cbc,cbd,cbe,0.02,cbf,cbg,cbh,cbi,cbj,'DELIVER IN PERSON',cbk,cbl)
+Constraint has 1 predicates
+Constraint targetting 2.8% restrictivity
+Constraint touches 291801 rows
+Rewriting query with constraint took 468804 miliseconds
+SELECT LINEITEM0.L_EXTENDEDPRICE 
+FROM PART PART0, LINEITEM LINEITEM0 
+WHERE PART0.P_PARTKEY = LINEITEM0.L_PARTKEY
+AND LINEITEM0.L_SHIPINSTRUCT = 'DELIVER IN PERSON'
+AND PART0.P_BRAND = 'Brand#54'
+AND (
+0.02 != LINEITEM0.L_TAX
+OR 1 != LINEITEM0.L_LINENUMBER
+)
+Executing the rewritten query results in 408341 rows.
+
+Planning: 
+[10.367, 6.597, 12.895, 7.178, 11.703]
+Execution: 
+[159689.39, 159796.95, 159682.92, 159702.62, 159689.78]
+
+
+

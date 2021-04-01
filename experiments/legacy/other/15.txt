@@ -1,0 +1,62 @@
+Query Q(cpr,cpt,cps,cpv) :- SUPPLIER(cpr,cps,cpt,cpu,cpv,cpw,cpx)
+
+SELECT SUPPLIER0.S_SUPPKEY, SUPPLIER0.S_ADDRESS, SUPPLIER0.S_NAME, SUPPLIER0.S_PHONE 
+FROM SUPPLIER SUPPLIER0 
+
+
+Parsing query took 1 miliseconds
+Query touches 70000 rows
+Planning: 
+[6.613, 1.425, 1.956, 4.406, 2.995]
+Execution: 
+[260.159, 253.479, 273.651, 255.783, 277.583]
+
+
+
+For constraint Q(bds,bdo,bdq,bdp) :- SUPPLIER(bdo,bdp,bdq,bdr,bds,bdt,bdu),NATION(bdr,bdv,3,bdw)
+Constraint has 2 predicates
+Constraint targetting 20% restrictivity
+Constraint touches 13966 rows
+Rewriting query with constraint took 1 miliseconds
+SELECT SUPPLIER0.S_SUPPKEY, SUPPLIER0.S_ADDRESS, SUPPLIER0.S_NAME, SUPPLIER0.S_PHONE 
+FROM SUPPLIER SUPPLIER0 
+WHERE NOT EXISTS(SELECT *
+FROM NATION NATION0 
+WHERE NATION0.N_NATIONKEY = SUPPLIER0.S_NATIONKEY
+AND NATION0.N_REGIONKEY = 3
+)
+
+Executing the rewritten query results in 56034 rows.
+
+Planning: 
+[6.539, 7.25, 5.843, 6.112, 6.348]
+Execution: 
+[257.203, 283.11, 268.131, 257.992, 261.45]
+
+
+
+For constraint Q(bdy,bdx,bdz,beb) :- SUPPLIER(bdx,bdy,bdz,bea,beb,bec,bed),PARTSUPP(bee,bdx,bef,beg,beh),PART(bee,bei,'Manufacturer#4',bej,bek,bel,bem,ben,beo),NATION(bea,bep,2,beq)
+Constraint has 4 predicates
+Constraint targetting 4% restrictivity
+Constraint touches 225015 rows
+Rewriting query with constraint took 0 miliseconds
+SELECT SUPPLIER0.S_SUPPKEY, SUPPLIER0.S_ADDRESS, SUPPLIER0.S_NAME, SUPPLIER0.S_PHONE 
+FROM SUPPLIER SUPPLIER0 
+WHERE NOT EXISTS(SELECT *
+FROM PARTSUPP PARTSUPP0, PART PART0, NATION NATION0 
+WHERE PARTSUPP0.PS_PARTKEY = PART0.P_PARTKEY
+AND PARTSUPP0.PS_SUPPKEY = SUPPLIER0.S_SUPPKEY
+AND NATION0.N_NATIONKEY = SUPPLIER0.S_NATIONKEY
+AND NATION0.N_REGIONKEY = 2
+AND PART0.P_MFGR = 'Manufacturer#4'
+)
+
+Executing the rewritten query results in 55916 rows.
+
+Planning: 
+[20.486, 26.175, 19.547, 16.98, 17.441]
+Execution: 
+[39444.117, 34210.86, 39591.633, 34173.566, 39689.023]
+
+
+

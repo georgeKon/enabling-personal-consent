@@ -1,0 +1,114 @@
+Query Q(chv) :- ORDERS(chq,chr,chs,cht,chu,chv,chw,chx,chy)
+
+SELECT ORDERS0.O_ORDERPRIORITY 
+FROM ORDERS ORDERS0 
+
+
+Parsing query took 2 miliseconds
+Query touches 10500000 rows
+Planning: 
+[2.205, 2.334, 2.494, 2.419, 2.641]
+Execution: 
+[35114.965, 35101.953, 35109.73, 35098.758, 35104.44]
+
+
+
+For constraint Q(ex) :- ORDERS(es,et,eu,ev,ew,ex,ey,ez,fa),LINEITEM(es,fb,fc,fd,fe,ff,fg,fh,'N',fi,fj,fk,fl,fm,fn,fo)
+Constraint has 2 predicates
+Constraint targetting 50.7% restrictivity
+Constraint touches 21269304 rows
+Rewriting query with constraint took 0 miliseconds
+SELECT ORDERS0.O_ORDERPRIORITY 
+FROM ORDERS ORDERS0 
+WHERE NOT EXISTS(SELECT *
+FROM LINEITEM LINEITEM0 
+WHERE LINEITEM0.L_ORDERKEY = ORDERS0.O_ORDERKEY
+AND LINEITEM0.L_RETURNFLAG = 'N'
+)
+
+Executing the rewritten query results in 5042658 rows.
+
+Planning: 
+[9.56, 14.207, 17.47, 18.063, 9.5]
+Execution: 
+[223884.7, 223676.81, 223001.6, 224711.7, 225350.83]
+
+
+
+For constraint Q(fu) :- ORDERS(fp,fq,fr,fs,ft,fu,fv,fw,fx),LINEITEM(fp,fy,fz,7,ga,gb,gc,gd,ge,gf,gg,gh,gi,gj,gk,gl)
+Constraint has 2 predicates
+Constraint targetting 3.6% restrictivity
+Constraint touches 1498557 rows
+Rewriting query with constraint took 0 miliseconds
+SELECT ORDERS0.O_ORDERPRIORITY 
+FROM ORDERS ORDERS0 
+WHERE NOT EXISTS(SELECT *
+FROM LINEITEM LINEITEM0 
+WHERE LINEITEM0.L_ORDERKEY = ORDERS0.O_ORDERKEY
+AND LINEITEM0.L_LINENUMBER = 7
+)
+
+Executing the rewritten query results in 9001443 rows.
+
+Planning: 
+[24.025, 20.244, 15.335, 16.785, 15.165]
+Execution: 
+[195778.3, 195431.7, 195481.47, 195473.0, 195697.98]
+
+
+
+Running the query against every constraint
+Rewriting query with all constraints took 2 miliseconds
+For this query, rewriting with all constraints produced 7 successful unifications.
+SELECT ORDERS0.O_ORDERPRIORITY 
+FROM ORDERS ORDERS0 
+WHERE NOT EXISTS(SELECT *
+FROM LINEITEM LINEITEM0 
+WHERE LINEITEM0.L_ORDERKEY = ORDERS0.O_ORDERKEY
+AND LINEITEM0.L_RETURNFLAG = 'N'
+AND LINEITEM0.L_SHIPMODE = 'FOB'
+)
+AND NOT EXISTS(SELECT *
+FROM LINEITEM LINEITEM1 
+WHERE LINEITEM1.L_ORDERKEY = ORDERS0.O_ORDERKEY
+AND LINEITEM1.L_LINENUMBER = 7
+)
+AND NOT EXISTS(SELECT *
+FROM LINEITEM LINEITEM2 
+WHERE LINEITEM2.L_ORDERKEY = ORDERS0.O_ORDERKEY
+AND LINEITEM2.L_RETURNFLAG = 'N'
+)
+AND NOT EXISTS(SELECT *
+FROM LINEITEM LINEITEM3 
+WHERE LINEITEM3.L_ORDERKEY = ORDERS0.O_ORDERKEY
+AND LINEITEM3.L_RETURNFLAG = 'N'
+)
+AND NOT EXISTS(SELECT *
+FROM LINEITEM LINEITEM4, CUSTOMER CUSTOMER0, NATION NATION0 
+WHERE LINEITEM4.L_ORDERKEY = ORDERS0.O_ORDERKEY
+AND CUSTOMER0.C_NATIONKEY = NATION0.N_NATIONKEY
+AND NATION0.N_REGIONKEY = 0
+AND LINEITEM4.L_SHIPMODE = 'FOB'
+AND CUSTOMER0.C_MKTSEGMENT = 'MACHINERY'
+)
+AND NOT EXISTS(SELECT *
+FROM LINEITEM LINEITEM5 
+WHERE LINEITEM5.L_ORDERKEY = ORDERS0.O_ORDERKEY
+AND LINEITEM5.L_LINENUMBER = 7
+)
+AND NOT EXISTS(SELECT *
+FROM LINEITEM LINEITEM6, CUSTOMER CUSTOMER1 
+WHERE LINEITEM6.L_ORDERKEY = ORDERS0.O_ORDERKEY
+AND LINEITEM6.L_RETURNFLAG = 'N'
+AND LINEITEM6.L_SHIPMODE = 'FOB'
+)
+
+Executing the rewritten query results in -1 rows.
+
+Planning: 
+[0.0, 0.0, 0.0, 0.0, 0.0]
+Execution: 
+[0.0, 0.0, 0.0, 0.0, 0.0]
+
+
+

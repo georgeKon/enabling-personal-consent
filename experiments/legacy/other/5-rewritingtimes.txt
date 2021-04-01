@@ -1,0 +1,37 @@
+Query Q(foe) :- NATION(foc,foe,fod,fof),ORDERS(foa,fnz,fog,foh,foi,foj,fok,fol,fom),CUSTOMER(fnz,fon,foo,foc,fop,foq,for,fos),SUPPLIER(fob,fot,fou,foc,fov,fow,fox),LINEITEM(foa,foy,fob,foz,fpa,fpb,fpc,fpd,fpe,fpf,fpg,fph,fpi,fpj,fpk,fpl),REGION(fod,'AMERICA',fpm)
+
+For constraint Q(b) :- NATION(a,b,c,d),ORDERS(e,f,'F',g,h,i,j,k,l),CUSTOMER(f,m,n,a,o,p,q,r),SUPPLIER(s,t,u,a,v,w,x),LINEITEM(e,y,s,z,aa,ab,ac,ad,ae,af,ag,ah,ai,aj,ak,al),REGION(c,'AMERICA',am),PARTSUPP(y,s,an,ao,ap),PART(y,aq,ar,as,at,au,av,aw,ax)
+Constraint has 8 predicates
+Constraint targetting 48.6% restrictivity
+Rewriting query with constraint took 852905 nanoseconds
+Rewriting query with constraint produced 1 successful unifications.
+For constraint Q(az) :- NATION(ay,az,ba,bb),ORDERS(bc,bd,be,bf,bg,bh,bi,bj,bk),CUSTOMER(bd,bl,bm,ay,bn,bo,bp,bq),SUPPLIER(br,bs,bt,ay,bu,bv,bw),LINEITEM(bc,bx,br,by,bz,ca,cb,0.08,cc,cd,ce,cf,cg,ch,ci,cj),REGION(ba,'AMERICA',ck),PARTSUPP(bx,br,cl,cm,cn),PART(bx,co,'Manufacturer#2',cp,cq,cr,cs,ct,cu)
+Constraint has 8 predicates
+Constraint targetting 2.22% restrictivity
+Rewriting query with constraint took 892506 nanoseconds
+Rewriting query with constraint produced 1 successful unifications.
+For constraint Q(cw) :- NATION(cv,cw,cx,cy),ORDERS(cz,da,'F',db,dc,dd,de,df,dg),CUSTOMER(da,dh,di,cv,dj,dk,dl,dm)
+Constraint has 3 predicates
+Constraint targetting 48.6% restrictivity
+Rewriting query with constraint took 159501 nanoseconds
+Rewriting query with constraint produced 1 successful unifications.
+For constraint Q(do) :- NATION(dn,do,dp,dq),SUPPLIER(dr,ds,dt,dn,du,dv,dw),LINEITEM(dx,dy,dr,dz,ea,eb,ec,0.08,ed,ee,ef,eg,eh,ei,ej,ek),PART(dy,el,'Manufacturer#2',em,en,eo,ep,eq,er)
+Constraint has 4 predicates
+Constraint targetting 2.22% restrictivity
+Rewriting query with constraint took 211801 nanoseconds
+Rewriting query with constraint produced 1 successful unifications.
+Running the query against 10 constraints
+Rewriting query with 10 constraints took 1736210 nanoseconds
+For this query, rewriting with 10 constraints produced 5 successful unifications.
+Running the query against 20 constraints
+Rewriting query with 20 constraints took 6236838 nanoseconds
+For this query, rewriting with 20 constraints produced 6 successful unifications.
+Running the query against 40 constraints
+Rewriting query with 40 constraints took 15603995 nanoseconds
+For this query, rewriting with 40 constraints produced 10 successful unifications.
+Running the query against 60 constraints
+Rewriting query with 60 constraints took 20705927 nanoseconds
+For this query, rewriting with 60 constraints produced 11 successful unifications.
+Running the query against 76 constraints
+Rewriting query with 76 constraints took 26792364 nanoseconds
+For this query, rewriting with 76 constraints produced 14 successful unifications.

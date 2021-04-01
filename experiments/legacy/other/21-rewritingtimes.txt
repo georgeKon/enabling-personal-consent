@@ -1,0 +1,37 @@
+Query Q(gdc) :- NATION(gcs,'GERMANY',gct,gcu),ORDERS(gcr,gcv,'F',gcw,gcx,gcy,gcz,gda,gdb),SUPPLIER(gcq,gdc,gdd,gcs,gde,gdf,gdg),LINEITEM(gcr,gdh,gcq,gdi,gdj,gdk,gdl,gdm,gdn,gdo,gdp,gdq,gdr,gds,gdt,gdu)
+
+For constraint Q(atq) :- NATION(ate,'GERMANY',atf,atg),ORDERS(ath,ati,'F',atj,atk,atl,atm,atn,ato),SUPPLIER(atp,atq,atr,ate,ats,att,atu),LINEITEM(ath,atv,atp,atw,atx,aty,atz,aua,'N',aub,auc,aud,aue,auf,aug,auh),CUSTOMER(ati,aui,auj,auk,aul,aum,aun,auo),REGION(atf,aup,auq)
+Constraint has 6 predicates
+Constraint targetting 50.7% restrictivity
+Rewriting query with constraint took 322402 nanoseconds
+Rewriting query with constraint produced 1 successful unifications.
+For constraint Q(avd) :- NATION(aur,'GERMANY',aus,aut),ORDERS(auu,auv,'F',auw,aux,auy,auz,ava,avb),SUPPLIER(avc,avd,ave,aur,avf,avg,avh),LINEITEM(auu,avi,avc,avj,avk,avl,avm,avn,avo,avp,avq,avr,avs,avt,'RAIL',avu),PARTSUPP(avi,avc,avv,avw,avx),PART(avi,avy,'Manufacturer#3',avz,awa,awb,awc,awd,awe)
+Constraint has 6 predicates
+Constraint targetting 2.86% restrictivity
+Rewriting query with constraint took 227801 nanoseconds
+Rewriting query with constraint produced 1 successful unifications.
+For constraint Q(awg) :- SUPPLIER(awf,awg,awh,awi,awj,awk,awl),LINEITEM(awm,awn,awf,awo,awp,awq,awr,aws,'N',awt,awu,awv,aww,awx,awy,awz)
+Constraint has 2 predicates
+Constraint targetting 50.7% restrictivity
+Rewriting query with constraint took 63301 nanoseconds
+Rewriting query with constraint produced 1 successful unifications.
+For constraint Q(axb) :- SUPPLIER(axa,axb,axc,axd,axe,axf,axg),LINEITEM(axh,axi,axa,axj,axk,axl,axm,axn,axo,axp,axq,axr,axs,axt,'RAIL',axu),PART(axi,axv,'Manufacturer#3',axw,axx,axy,axz,aya,ayb)
+Constraint has 3 predicates
+Constraint targetting 2.86% restrictivity
+Rewriting query with constraint took 69001 nanoseconds
+Rewriting query with constraint produced 1 successful unifications.
+Running the query against 10 constraints
+Rewriting query with 10 constraints took 725605 nanoseconds
+For this query, rewriting with 10 constraints produced 4 successful unifications.
+Running the query against 20 constraints
+Rewriting query with 20 constraints took 2237514 nanoseconds
+For this query, rewriting with 20 constraints produced 6 successful unifications.
+Running the query against 40 constraints
+Rewriting query with 40 constraints took 5457733 nanoseconds
+For this query, rewriting with 40 constraints produced 10 successful unifications.
+Running the query against 60 constraints
+Rewriting query with 60 constraints took 7841848 nanoseconds
+For this query, rewriting with 60 constraints produced 12 successful unifications.
+Running the query against 76 constraints
+Rewriting query with 76 constraints took 9956661 nanoseconds
+For this query, rewriting with 76 constraints produced 15 successful unifications.

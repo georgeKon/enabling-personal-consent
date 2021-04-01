@@ -1,0 +1,4 @@
+Q(e,f) :- NATION(a,'ARGENTINA',b,c),SUPPLIER(d,e,f,a,g,h,i),LINEITEM(j,k,d,l,m,n,o,p,q,'F',r,s,t,u,v,w)
+Q(e,f) :- NATION(a,'ARGENTINA',b,c),SUPPLIER(d,e,f,a,g,h,i),CUSTOMER(j,k,l,a,m,n,'FURNITURE',p)
+Q(e,f) :- SUPPLIER(d,e,f,a,g,h,i),LINEITEM(j,k,d,l,m,n,o,p,q,'F',r,s,t,u,v,w)
+Q(e,f) :- SUPPLIER(d,e,f,a,g,h,i),CUSTOMER(j,k,l,a,m,n,'FURNITURE',p)

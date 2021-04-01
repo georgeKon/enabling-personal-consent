@@ -1,0 +1,67 @@
+Query Q(cqg,cqf,cqh) :- PARTSUPP(cpy,cpz,cqa,cqb,cqc),PART(cpy,cqd,cqe,cqf,cqg,cqh,cqi,cqj,cqk)
+
+SELECT PART0.P_TYPE, PART0.P_BRAND, PART0.P_SIZE 
+FROM PARTSUPP PARTSUPP0, PART PART0 
+WHERE PARTSUPP0.PS_PARTKEY = PART0.P_PARTKEY
+
+
+Parsing query took 2 miliseconds
+Query touches 5600000 rows
+Planning: 
+[10.23, 13.193, 18.815, 16.646, 15.012]
+Execution: 
+[35818.707, 31953.348, 30307.107, 32016.08, 31880.588]
+
+
+
+For constraint Q(bhk,bhj,bhl) :- PARTSUPP(bhc,bhd,bhe,bhf,bhg),PART(bhc,bhh,bhi,bhj,bhk,bhl,bhm,bhn,bho),LINEITEM(bhp,bhc,bhd,bhq,bhr,bhs,bht,bhu,bhv,'O',bhw,bhx,bhy,bhz,bia,bib)
+Constraint has 3 predicates
+Constraint targetting 50.1% restrictivity
+Constraint touches 20999272 rows
+Rewriting query with constraint took 0 miliseconds
+SELECT PART0.P_TYPE, PART0.P_BRAND, PART0.P_SIZE 
+FROM PARTSUPP PARTSUPP0, PART PART0 
+WHERE PARTSUPP0.PS_PARTKEY = PART0.P_PARTKEY
+AND NOT EXISTS(SELECT *
+FROM PARTSUPP PARTSUPP1, LINEITEM LINEITEM0 
+WHERE PARTSUPP1.PS_PARTKEY = LINEITEM0.L_PARTKEY
+AND PARTSUPP1.PS_PARTKEY = PARTSUPP0.PS_PARTKEY
+AND PARTSUPP1.PS_SUPPKEY = LINEITEM0.L_SUPPKEY
+AND LINEITEM0.L_LINESTATUS = 'O'
+)
+
+Executing the rewritten query results in 0 rows.
+
+Planning: 
+[17.61, 13.185, 12.489, 14.944, 15.287]
+Execution: 
+[262022.53, 273097.72, 262764.56, 273214.3, 271465.06]
+
+
+
+For constraint Q(bij,bii,bik) :- PARTSUPP(bic,bid,bie,bif,big),PART(bic,bih,'Manufacturer#2',bii,bij,bik,bil,bim,bin),LINEITEM(bio,bic,bid,bip,biq,bir,bis,bit,biu,biv,biw,'DELIVER IN PERSON',bix,biy,biz,bja)
+Constraint has 3 predicates
+Constraint targetting 5% restrictivity
+Constraint touches -1 rows
+Rewriting query with constraint took 0 miliseconds
+SELECT PART0.P_TYPE, PART0.P_BRAND, PART0.P_SIZE 
+FROM PARTSUPP PARTSUPP0, PART PART0 
+WHERE PARTSUPP0.PS_PARTKEY = PART0.P_PARTKEY
+AND NOT EXISTS(SELECT *
+FROM PARTSUPP PARTSUPP1, LINEITEM LINEITEM0 
+WHERE PARTSUPP1.PS_PARTKEY = LINEITEM0.L_PARTKEY
+AND PARTSUPP1.PS_PARTKEY = PARTSUPP0.PS_PARTKEY
+AND PARTSUPP1.PS_SUPPKEY = LINEITEM0.L_SUPPKEY
+AND LINEITEM0.L_COMMITDATE = 'DELIVER IN PERSON'
+AND 'Manufacturer#2' = PART0.P_MFGR
+)
+
+Executing the rewritten query results in -1 rows.
+
+Planning: 
+[0.0, 0.0, 0.0, 0.0, 0.0]
+Execution: 
+[0.0, 0.0, 0.0, 0.0, 0.0]
+
+
+

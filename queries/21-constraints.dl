@@ -1,0 +1,4 @@
+Q(m) :- NATION(c,'GERMANY',d,e),ORDERS(b,f,'F',g,h,i,j,k,l),SUPPLIER(a,m,n,c,o,p,q),LINEITEM(b,r,a,s,t,u,v,w,'N',y,z,aa,ab,ac,ad,ae),CUSTOMER(f,af,ag,ah,ai,aj,ak,al),REGION(d,am,an)
+Q(m) :- NATION(c,'GERMANY',d,e),ORDERS(b,f,'F',g,h,i,j,k,l),SUPPLIER(a,m,n,c,o,p,q),LINEITEM(b,r,a,s,t,u,v,w,x,y,z,aa,ab,ac,'RAIL',ae),PARTSUPP(r,a,an,ao,ap),PART(r,af,'Manufacturer#3',ah,ai,aj,ak,al,am)
+Q(m) :- SUPPLIER(a,m,n,c,o,p,q),LINEITEM(b,r,a,s,t,u,v,w,'N',y,z,aa,ab,ac,ad,ae)
+Q(m) :- SUPPLIER(a,m,n,c,o,p,q),LINEITEM(b,r,a,s,t,u,v,w,x,y,z,aa,ab,ac,'RAIL',ae),PART(r,af,'Manufacturer#3',ah,ai,aj,ak,al,am)

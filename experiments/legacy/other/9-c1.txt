@@ -1,0 +1,23 @@
+For constraint Q(btk,bsj,bsy) :- PARTSUPP(bsd,bse,bsf,bsg,bsh),NATION(bsi,bsj,bsk,bsl),PART(bsd,bsm,bsn,bso,bsp,bsq,bsr,bss,bst),ORDERS(bsu,bsv,bsw,bsx,bsy,bsz,bta,btb,btc),SUPPLIER(bse,btd,bte,bsi,btf,btg,bth),LINEITEM(bsu,bsd,bse,bti,btj,btk,btl,btm,'N',btn,bto,btp,btq,btr,bts,btt),REGION(bsk,btu,btv),CUSTOMER(bsv,btw,btx,bty,btz,bua,bub,buc)
+Constraint has 8 predicates
+Constraint targetting 50.7% restrictivity
+Constraint touches 21269304 rows
+Rewriting query with constraint took 9990073 miliseconds
+SELECT LINEITEM0.L_EXTENDEDPRICE, ORDERS0.O_ORDERDATE, NATION0.N_NAME 
+FROM PARTSUPP PARTSUPP0, NATION NATION0, PART PART0, ORDERS ORDERS0, SUPPLIER SUPPLIER0, LINEITEM LINEITEM0 
+WHERE NATION0.N_NATIONKEY = SUPPLIER0.S_NATIONKEY
+AND PARTSUPP0.PS_SUPPKEY = SUPPLIER0.S_SUPPKEY
+AND PARTSUPP0.PS_SUPPKEY = LINEITEM0.L_SUPPKEY
+AND ORDERS0.O_ORDERKEY = LINEITEM0.L_ORDERKEY
+AND PARTSUPP0.PS_PARTKEY = PART0.P_PARTKEY
+AND PARTSUPP0.PS_PARTKEY = LINEITEM0.L_PARTKEY
+
+Executing the rewritten query results in 41995307 rows.
+
+Planning: 
+[36.251, 28.928, 32.37, 28.222, 30.498]
+Execution: 
+[1221766.2, 1184601.9, 1179932.6, 1199067.9, 1183256.1]
+
+
+

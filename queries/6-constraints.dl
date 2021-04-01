@@ -1,0 +1,4 @@
+Q(f) :- LINEITEM(a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p),ORDERS(a,q,'O',r,s,t,u,v,w)
+Q(f) :- LINEITEM(a,b,c,4,e,f,g,h,i,j,k,l,m,n,o,p),ORDERS(a,q,r,s,t,'2-HIGH',u,v,w)
+Q(f) :- LINEITEM(a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p),ORDERS(a,q,'O',r,s,t,u,v,w)
+Q(f) :- LINEITEM(a,b,c,4,e,f,g,h,i,j,k,l,m,n,o,p),ORDERS(a,q,r,s,t,'2-HIGH',u,v,w)

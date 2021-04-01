@@ -1,0 +1,1 @@
+Q(f) :- NATION(d,f,e,g),ORDERS(b,a,h,i,j,k,l,m,n),CUSTOMER(a,o,p,d,q,r,s,t),SUPPLIER(c,u,v,d,w,x,y),LINEITEM(b,z,c,aa,ab,ac,ad,ae,af,ag,ah,ai,aj,ak,al,am),REGION(e,'AMERICA',an)

@@ -1,0 +1,4 @@
+Q(a,b,c,e) :- SUPPLIER(a,b,c,d,e,f,g), NATION(d,h,3,i), REGION(3,j,k)
+Q(a,b,c,e) :- SUPPLIER(a,b,c,d,e,f,g), PARTSUPP(h,a,i,j,k), PART(h,l,'Manufacturer#4',n,o,p,q,r,s), NATION(d,t,2,u), REGION(2,v,w)
+Q(a,b,c,e) :- SUPPLIER(a,b,c,d,e,f,g), NATION(d,h,3,i)
+Q(a,b,c,e) :- SUPPLIER(a,b,c,d,e,f,g), PARTSUPP(h,a,i,j,k), PART(h,l,'Manufacturer#4',n,o,p,q,r,s), NATION(d,t,2,u)

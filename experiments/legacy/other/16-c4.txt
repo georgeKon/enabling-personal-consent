@@ -1,0 +1,26 @@
+For constraint Q(bil,bik,bim) :- PARTSUPP(bie,bif,big,bih,bii),PART(bie,bij,'Manufacturer#2',bik,bil,bim,bin,bio,bip),LINEITEM(biq,bie,bif,bir,bis,bit,biu,biv,biw,bix,biy,biz,bja,'DELIVER IN PERSON',bjb,bjc)
+Constraint has 3 predicates
+Constraint targetting 5% restrictivity
+Constraint touches 2093767 rows
+Rewriting query with constraint took 1886813 miliseconds
+SELECT PART0.P_BRAND, PART0.P_SIZE, PART0.P_TYPE 
+FROM PARTSUPP PARTSUPP0, PART PART0 
+WHERE PARTSUPP0.PS_PARTKEY = PART0.P_PARTKEY
+AND NOT EXISTS(SELECT *
+FROM PARTSUPP PARTSUPP1, LINEITEM LINEITEM0 
+WHERE PARTSUPP1.PS_PARTKEY = LINEITEM0.L_PARTKEY
+AND PARTSUPP1.PS_PARTKEY = PARTSUPP0.PS_PARTKEY
+AND PARTSUPP1.PS_SUPPKEY = LINEITEM0.L_SUPPKEY
+AND LINEITEM0.L_SHIPINSTRUCT = 'DELIVER IN PERSON'
+AND 'Manufacturer#2' = PART0.P_MFGR
+)
+
+Executing the rewritten query results in 4482512 rows.
+
+Planning: 
+[17.407, 27.097, 15.646, 15.055, 18.199]
+Execution: 
+[232581.19, 233992.16, 232447.45, 230147.17, 231806.19]
+
+
+

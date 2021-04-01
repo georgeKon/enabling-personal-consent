@@ -1,0 +1,1 @@
+Q(m) :- NATION(c,'GERMANY',d,e),ORDERS(b,f,'F',g,h,i,j,k,l),SUPPLIER(a,m,n,c,o,p,q),LINEITEM(b,r,a,s,t,u,v,w,x,y,z,aa,ab,ac,ad,ae)

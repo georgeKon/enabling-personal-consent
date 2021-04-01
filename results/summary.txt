@@ -1,0 +1,11 @@
+Internal
+             	| High Selectivity 	| Medium Selectivity 	| Low Selectivity
+all choices	 	| Similar			| Similar				| Similar
+key choices 	| Similar			| Similar				| Similar
+some choices	| Similar			| Similar				| Similar
+
+External
+             	| High Selectivity 	| Medium Selectivity 	| Low Selectivity
+all choices	 	| Faster			| Slightly Slower (3-4%)| Faster
+key choices 	| Faster			| Similar				| Slower
+some choices	| Faster			| Slower				| Faster
