@@ -22,7 +22,7 @@ public class FineGrainedCustomerExperiment {
     private static List<DatalogStatement> joinedCustomerConstraints = new ArrayList<>();
 
     public static void main(String[] args) {
-        runExperiment(true,7,500);
+        runExperiment(false,7,500);
     }
 
     public static void runExperiment(boolean setUpDatabase, int tpchscale, int count) {
@@ -32,7 +32,7 @@ public class FineGrainedCustomerExperiment {
         ParseDatalog parseDatalog = new ParseDatalog();
         //Load in the constraints
         try {
-            BufferedReader reader = new BufferedReader(new FileReader(projectDir + "queries/"+count+"-tpch"+tpchscale+"-joined-customer-constraint.dl"));
+            BufferedReader reader = new BufferedReader(new FileReader(projectDir + "queries+constraints/tpch/"+count+"-tpch"+tpchscale+"-joined-customer-constraint.dl"));
             String line = reader.readLine();
             while (line != null && !line.trim().equals("")) {
                 DatalogStatement constraint = parseDatalog.safeParseString(line);
@@ -45,7 +45,7 @@ public class FineGrainedCustomerExperiment {
             e.printStackTrace();
         }
         try {
-            BufferedReader reader = new BufferedReader(new FileReader(projectDir + "queries/"+count+"-tpch"+tpchscale+"-customer-constraint.dl"));
+            BufferedReader reader = new BufferedReader(new FileReader(projectDir + "queries+constraints/tpch/"+count+"-tpch"+tpchscale+"-customer-constraint.dl"));
             String line = reader.readLine();
             while (line != null && !line.trim().equals("")) {
                 DatalogStatement constraint = parseDatalog.safeParseString(line);
@@ -77,14 +77,14 @@ public class FineGrainedCustomerExperiment {
         int[] sizesOrders = {100, 250, 500};
 
         try {
-            PrintWriter writerNoJoin = new PrintWriter(new FileWriter(projectDir + "experiments/finegrain/customers-nojoin.csv"), true);
+            PrintWriter writerNoJoin = new PrintWriter(new FileWriter(projectDir + "results/finegrain/customers-nojoin.csv"), true);
             writerNoJoin.write("Qid,constraints,Qexecution,Qrows,Runifications,Rrows,Rexecution\n");
-            PrintWriter writerJoin = new PrintWriter(new FileWriter(projectDir + "experiments/finegrain/customers-join.csv"), true);
+            PrintWriter writerJoin = new PrintWriter(new FileWriter(projectDir + "results/finegrain/customers-join.csv"), true);
             writerJoin.write("Qid,constraints,Qexecution,Qrows,Runifications,Rrows,Rexecution\n");
             for (Integer queryID : queries) {
 
                 //Parse Query
-                DatalogStatement query = parsePostgreSQL.parseFile(projectDir + "queries/" + queryID + "-clean.sql");
+                DatalogStatement query = parsePostgreSQL.parseFile(projectDir + "queries+constraints/tpch/" + queryID + "-clean.sql");
 
                 int qRows = experiment.sizeOfQuery(query.toPostgreSQLString());
 

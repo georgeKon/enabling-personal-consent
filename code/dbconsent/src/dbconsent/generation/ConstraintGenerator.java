@@ -17,8 +17,8 @@ public class ConstraintGenerator {
 
 
     /**
-     * Writes the constraints to the file queries/*number*-tpch*scale*-customer-constraint.dl for constraints without joins
-     * and queries/*number*-tpch*scale*-joined-customer-constraint.dl for constraints with joins, respectively
+     * Writes the constraints to the file queries+constraints/tpch/*number*-tpch*scale*-customer-constraint.dl for constraints without joins
+     * and queries+constraints/tpch/*number*-tpch*scale*-joined-customer-constraint.dl for constraints with joins, respectively
      * @param number the number of constraints to generate (eg '500')
      * @param tpchscale the scale of tpch these constraints are being used with (eg '7')
      */
@@ -30,7 +30,7 @@ public class ConstraintGenerator {
         Set<DatalogStatement> constraints = generateUnjoinedCustomerConstraints(number,tpchscale);
         PrintWriter writer = null;
         try {
-            writer = new PrintWriter(projectDir + "queries/"+number+"-tpch" + tpchscale + "-customer-constraint.dl","UTF-8");
+            writer = new PrintWriter(projectDir + "queries+constraints/tpch/"+number+"-tpch" + tpchscale + "-customer-constraint.dl","UTF-8");
             for(DatalogStatement query : constraints) {
                 writer.write(query.toString() + "\n");
             }
@@ -84,7 +84,7 @@ public class ConstraintGenerator {
         }
         PrintWriter writer2 = null;
         try {
-            writer2 = new PrintWriter(projectDir + "queries/"+number+"-tpch" + tpchscale + "-joined-customer-constraint.dl","UTF-8");
+            writer2 = new PrintWriter(projectDir + "queries+constraints/tpch/"+number+"-tpch" + tpchscale + "-joined-customer-constraint.dl","UTF-8");
             for(DatalogStatement query : constraintsPlusJoin) {
                 writer2.write(query.toString() + "\n");
             }
@@ -97,8 +97,8 @@ public class ConstraintGenerator {
     }
 
     /**
-     * Writes the constraints to the file queries/*number*-tpch*scale*-order-constraint.dl for constraints without joins
-     * and queries/*number*-tpch*scale*-joined-order-constraint.dl for constraints with joins, respectively
+     * Writes the constraints to the file queries+constraints/tpch/*number*-tpch*scale*-order-constraint.dl for constraints without joins
+     * and queries+constraints/tpch/*number*-tpch*scale*-joined-order-constraint.dl for constraints with joins, respectively
      * @param number the number of constraints to generate (eg '500')
      * @param tpchscale the scale of tpch these constraints are being used with (eg '7')
      */
@@ -110,7 +110,7 @@ public class ConstraintGenerator {
         Set<DatalogStatement> queries = generateUnjoinedOrderConstraints(number,tpchscale);
         PrintWriter writer = null;
         try {
-            writer = new PrintWriter(projectDir + "queries/"+number+"-tpch" + tpchscale + "-order-constraint.dl","UTF-8");
+            writer = new PrintWriter(projectDir + "queries+constraints/tpch/"+number+"-tpch" + tpchscale + "-order-constraint.dl","UTF-8");
             for(DatalogStatement query : queries) {
                 writer.write(query.toString() + "\n");
             }
@@ -185,7 +185,7 @@ public class ConstraintGenerator {
         }
         PrintWriter writer2 = null;
         try {
-            writer2 = new PrintWriter(projectDir + "queries/"+number+"-tpch" + tpchscale + "-joined-order-constraint.dl","UTF-8");
+            writer2 = new PrintWriter(projectDir + "queries+constraints/tpch/"+number+"-tpch" + tpchscale + "-joined-order-constraint.dl","UTF-8");
             for(DatalogStatement query : queriesPlusJoin) {
                 writer2.write(query.toString() + "\n");
             }

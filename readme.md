@@ -15,8 +15,9 @@ code/
 						- Both modified from https://github.com/tshprecher/antlr_psql/
 						- MIT Licensed (Open)
 					*.java
-				constraintgeneration/
+				generation/
 					*.java
+					    - Including constraint generator
 				experiments/
 					experiments/
 						*.java
@@ -39,10 +40,15 @@ code/
 	choice-insertion/
 		insertchoice.py
 		config.csv
+	add-annotations/
+	    add-annotations.py
+	    database_config.txt
+	        - Used as input to 'add-annotations.py'
 	dbconsent.properties
 		- Important file which defines the root dir and 
 graphs/
 	*.png
+	*.jpg
 	- Folder to contain Graphs generated for the paper
 licenses/
 	bsd.txt
@@ -50,16 +56,40 @@ licenses/
 	bsd2clause.txt
 	MIT.txt
 	- Folder to contain licenses
-queries/
-	*.dl
-	*.sql
-	readme.md
-	- Folder for TPC-H queries, and the constraints written for them
+queries+constraints/
+    tpch/
+	    *.dl
+	    *.sql
+	    readme.md
+	    - Folder for TPC-H queries, and the constraints written for them
+	mimic/
+	    queries.txt
+	        - text file containing all 7 queries used on mimic3 dataset
 experiments/
 	hippocratic/
 	finegrain/
 	other/
-	- Folders for the experiments to put results in
+results/
+    comparison/
+        - experiment output files
+    expressiveness/
+        - experiment output files
+    finegrain/
+        - experiment output files
+    mimic/
+        - experiment output files
+    visualise_results/
+        Comparison/
+            Comparison(Figure3).ipynb
+        Expressiveness/
+            Expressiveness.ipynb
+        Mimic/
+            Mimic.ipynb
+        Data/
+            comparison/
+            expressiveness/
+            mimic/
+            - Folders for holding results to be visualised       
 tpch-data/
 	<foldername>/
 		<table>.tbl

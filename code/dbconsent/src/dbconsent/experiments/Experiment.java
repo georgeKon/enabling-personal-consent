@@ -10,20 +10,26 @@ public class Experiment {
 
     protected Properties properties;
     protected static final int timeout = 3600;
+    protected String dbname;
 
     public Experiment(Properties psqlconnect) {
         this.properties = psqlconnect;
+        this.dbname = "dbconsent";
+    }
 
+    public Experiment(Properties psqlconnect, String dbname) {
+        this.properties = psqlconnect;
+        this.dbname = dbname;
     }
 
     protected ResultSet execQuery(Connection conn, String query) throws SQLException {
-        Statement statement = conn.createStatement();
+        Statement statement = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
         statement.setQueryTimeout(timeout);
         return statement.executeQuery(query);
     }
 
     public ResultSet execQuery(String query){
-        try (Connection conn = properties.connectDB("dbconsent")) {
+        try (Connection conn = properties.connectDB(dbname)) {
             return execQuery(conn, query);
         } catch (SQLException | ConnectException e) {
             e.printStackTrace();
@@ -53,7 +59,7 @@ public class Experiment {
         return !results2.next();
     }
 
-    protected void execUpdate(Connection conn, String query) throws SQLException {
+    public void execUpdate(Connection conn, String query) throws SQLException {
         conn.createStatement().executeUpdate(query);
     }
 
@@ -96,7 +102,7 @@ public class Experiment {
             clearPostgresCache();
             //Thread.sleep(1000);
             try {
-                connection = properties.connectDB("dbconsent");
+                connection = properties.connectDB(dbname);
                 ResultSet result = execQuery(connection, "EXPLAIN (ANALYZE TRUE, FORMAT JSON) " + query);
                 result.next();
                 JSONArray outerArray = new JSONArray(result.getString(1));
@@ -122,7 +128,7 @@ public class Experiment {
         try {
             clearPostgresCache();
             //Thread.sleep(1000);
-            Connection connection = properties.connectDB("dbconsent");
+            Connection connection = properties.connectDB(dbname);
             ResultSet result = execQuery(connection, countQuery);
             result.next();
             return result.getInt(1);
@@ -132,6 +138,7 @@ public class Experiment {
         return -1;
     }
 
+    // Only for dbconsent (TPCH)
     public void setupDatabase(String pathToSchema, String warmupQuery) throws SQLException, IOException, InterruptedException {
         //Wipe database
         Connection baseConnection = properties.connect();
@@ -149,7 +156,7 @@ public class Experiment {
 
     protected void warmUpDatabase(String query){
         try {
-            Connection connection = properties.connectDB("dbconsent");
+            Connection connection = properties.connectDB(dbname);
             for (int i = 0; i < 5; i++){
                 execQuery(connection, query);
             }

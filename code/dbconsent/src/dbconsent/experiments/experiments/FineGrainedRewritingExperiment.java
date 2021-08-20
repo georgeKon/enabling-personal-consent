@@ -30,7 +30,7 @@ public class FineGrainedRewritingExperiment {
 
         ParseDatalog parseDatalog = new ParseDatalog();
         try {
-            BufferedReader reader = new BufferedReader(new FileReader(projectDir + "queries/"+count+"-tpch"+tpchscale+"-joined-customer-constraint.dl"));
+            BufferedReader reader = new BufferedReader(new FileReader(projectDir + "queries+constraints/tpch/"+count+"-tpch"+tpchscale+"-joined-customer-constraint.dl"));
             String line = reader.readLine();
             while (line != null && !line.trim().equals("")) {
                 DatalogStatement constraint = parseDatalog.safeParseString(line);
@@ -44,7 +44,7 @@ public class FineGrainedRewritingExperiment {
         }
 
         try {
-            BufferedReader reader = new BufferedReader(new FileReader(projectDir + "queries/"+count+"-tpch"+tpchscale+"-customer-constraint.dl"));
+            BufferedReader reader = new BufferedReader(new FileReader(projectDir + "queries+constraints/tpch/"+count+"-tpch"+tpchscale+"-customer-constraint.dl"));
             String line = reader.readLine();
             while (line != null && !line.trim().equals("")) {
                 DatalogStatement constraint = parseDatalog.safeParseString(line);
@@ -62,15 +62,15 @@ public class FineGrainedRewritingExperiment {
         int[] queries = {10, 13, 18};
         int[] sizesCustomer = {10,50,100,250,500};
         try {
-            PrintWriter writer = new PrintWriter(projectDir + "experiments/finegrain/customer-rewritings-nojoin.txt", "UTF-8");
+            PrintWriter writer = new PrintWriter(projectDir + "results/finegrain/customer-rewritings-nojoin.txt", "UTF-8");
             writer.write("queryid,numberconstraints,rewritingtimenano");
-            PrintWriter writer2 = new PrintWriter(projectDir + "experiments/finegrain/customer-rewritings-join.txt", "UTF-8");
+            PrintWriter writer2 = new PrintWriter(projectDir + "results/finegrain/customer-rewritings-join.txt", "UTF-8");
             writer2.write("queryid,numberconstraints,rewritingtimenano");
             for (Integer queryID : queries) {
 
                 DatalogStatement query = null;
                 try {
-                    query = parsePostgreSQL.parseFile(projectDir + "queries/" + queryID + "-clean.sql");
+                    query = parsePostgreSQL.parseFile(projectDir + "queries+constraints/tpch/" + queryID + "-clean.sql");
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -124,7 +124,7 @@ public class FineGrainedRewritingExperiment {
         }
 
         try {
-            BufferedReader reader = new BufferedReader(new FileReader(projectDir + "queries/500-joined-order-constraint.dl"));
+            BufferedReader reader = new BufferedReader(new FileReader(projectDir + "queries+constraints/tpch/500-joined-order-constraint.dl"));
             String line = reader.readLine();
             while (line != null && !line.trim().equals("")) {
                 DatalogStatement constraint = parseDatalog.safeParseString(line);
@@ -138,7 +138,7 @@ public class FineGrainedRewritingExperiment {
         }
 
         try {
-            BufferedReader reader = new BufferedReader(new FileReader(projectDir + "queries/500-order-constraint.dl"));
+            BufferedReader reader = new BufferedReader(new FileReader(projectDir + "queries+constraints/tpch/500-order-constraint.dl"));
             String line = reader.readLine();
             while (line != null && !line.trim().equals("")) {
                 DatalogStatement constraint = parseDatalog.safeParseString(line);
@@ -154,15 +154,15 @@ public class FineGrainedRewritingExperiment {
         int[] orderQueries = {4, 13, 21, 7, 10, 5, 3, 12};
         int[] sizesOrders = {10,50,100,250,500};
         try {
-            PrintWriter writer = new PrintWriter(projectDir + "experiments/finegrain/order-rewritings-nojoin.txt", "UTF-8");
+            PrintWriter writer = new PrintWriter(projectDir + "results/finegrain/order-rewritings-nojoin.txt", "UTF-8");
             writer.write("queryid,numberconstraints,rewritingtimenano");
-            PrintWriter writer2 = new PrintWriter(projectDir + "experiments/finegrain/order-rewritings-join.txt", "UTF-8");
+            PrintWriter writer2 = new PrintWriter(projectDir + "results/finegrain/order-rewritings-join.txt", "UTF-8");
             writer2.write("queryid,numberconstraints,rewritingtimenano");
             for (Integer queryID : orderQueries) {
 
                 DatalogStatement query = null;
                 try {
-                    query = parsePostgreSQL.parseFile(projectDir + "queries/" + queryID + "-clean.sql");
+                    query = parsePostgreSQL.parseFile(projectDir + "queries+constraints/tpch/" + queryID + "-clean.sql");
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

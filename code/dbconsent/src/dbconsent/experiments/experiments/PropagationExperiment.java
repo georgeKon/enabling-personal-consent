@@ -64,7 +64,7 @@ public class PropagationExperiment {
         }
 
 //        // Read in auto-generated fine-grained constraints.
-//        try (BufferedReader reader = new BufferedReader(new FileReader(projectDir + "queries/" + count + "-tpch" + tpchscale + "-joined-customer-constraint.dl"))) {
+//        try (BufferedReader reader = new BufferedReader(new FileReader(projectDir + "queries+constraints/tpch/" + count + "-tpch" + tpchscale + "-joined-customer-constraint.dl"))) {
 //            String line = reader.readLine();
 //            while (line != null && !line.trim().equals("")) {
 //                DatalogStatement constraint = parseDatalog.safeParseString(line);
@@ -76,7 +76,7 @@ public class PropagationExperiment {
 //        } catch (IOException e) {
 //            e.printStackTrace();
 //        }
-//        try (BufferedReader reader = new BufferedReader(new FileReader(projectDir + "queries/" + count + "-tpch" + tpchscale + "-customer-constraint.dl"))) {
+//        try (BufferedReader reader = new BufferedReader(new FileReader(projectDir + "queries+constraints/tpch/" + count + "-tpch" + tpchscale + "-customer-constraint.dl"))) {
 //            String line = reader.readLine();
 //            while (line != null && !line.trim().equals("")) {
 //                DatalogStatement constraint = parseDatalog.safeParseString(line);
@@ -90,7 +90,7 @@ public class PropagationExperiment {
 //        }
 
         // Read in manually created constraints for propagated queries.
-        try (BufferedReader reader = new BufferedReader(new FileReader(projectDir + "queries/custom-constraints-propagated.dl"))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(projectDir + "queries+constraints/tpch/custom-constraints-propagated.dl"))) {
             String line = reader.readLine();
             while (line != null && !line.trim().equals("")) {
                 DatalogStatement constraint = parseDatalog.safeParseString(line);
@@ -111,7 +111,7 @@ public class PropagationExperiment {
         ParseDatalog parseDatalog = new ParseDatalog();
         Experiment experiment = new Experiment(connect);
 
-        try (PrintWriter writer = new PrintWriter(projectDir + "experiments/propagation/propagation-simple.csv", "UTF-8")) {
+        try (PrintWriter writer = new PrintWriter(projectDir + "results/propagation/propagation-simple.csv", "UTF-8")) {
             if(setUpDatabase) {
                 String pathToSchema = projectDir + "tpch-data/scale"+tpchscale+"/schema.sql";
                 //Use this to ensure that Postgres is actually up, not to clear cache.
@@ -138,12 +138,12 @@ public class PropagationExperiment {
 
             for (int queryID : queries) {
                 try {
-                    DatalogStatement query = parsePostgreSQL.parseFile(projectDir + "queries/" + queryID + "-clean.sql");
+                    DatalogStatement query = parsePostgreSQL.parseFile(projectDir + "queries+constraints/tpch/" + queryID + "-clean.sql");
                     query.setPredicate("Q" + queryID);
                     previousQueries.add(query);
 
                     // Parse query again to ensure clean version, then rewrite.
-                    query = parsePostgreSQL.parseFile(projectDir + "queries/" + queryID + "-clean.sql");
+                    query = parsePostgreSQL.parseFile(projectDir + "queries+constraints/tpch/" + queryID + "-clean.sql");
                     query.setPredicate("Q" + queryID);
                     query = RewritingAlgorithm.rewriteQuery(query, allConstraints);
                     rewrittenPreviousQueries.add(query);
@@ -157,7 +157,7 @@ public class PropagationExperiment {
 
             List<DatalogStatement> generatedQueries = new ArrayList<>();
 
-            try (BufferedReader reader = new BufferedReader(new FileReader(projectDir + "queries/propagated.dl"))) {
+            try (BufferedReader reader = new BufferedReader(new FileReader(projectDir + "queries+constraints/tpch/propagated.dl"))) {
                 String line = reader.readLine();
                 while (line != null && !line.trim().equals("")) {
                     DatalogStatement query = parseDatalog.safeParseString(line);

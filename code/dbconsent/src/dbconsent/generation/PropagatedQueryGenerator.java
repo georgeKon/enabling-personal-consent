@@ -69,7 +69,7 @@ public class PropagatedQueryGenerator {
         Properties connect = new Properties();
         String projectDir = connect.getProjectDir();
 
-        try (PrintWriter writer = new PrintWriter(projectDir + "queries/propagated.dl", "UTF-8")) {
+        try (PrintWriter writer = new PrintWriter(projectDir + "queries+constraints/tpch/propagated.dl", "UTF-8")) {
             for (DatalogStatement generatedQuery : generatedQueries) {
                 writer.println(generatedQuery.toString());
             }

@@ -32,7 +32,7 @@ public class FineGrainedOrderExperiment {
         ParseDatalog parseDatalog = new ParseDatalog();
         //Load in the constraints
         try {
-            BufferedReader reader = new BufferedReader(new FileReader(projectDir + "queries/"+count+"-tpch"+tpchscale+"-joined-order-constraint.dl"));
+            BufferedReader reader = new BufferedReader(new FileReader(projectDir + "queries+constraints/tpch/"+count+"-tpch"+tpchscale+"-joined-order-constraint.dl"));
             String line = reader.readLine();
             while (line != null && !line.trim().equals("")) {
                 DatalogStatement constraint = parseDatalog.safeParseString(line);
@@ -45,7 +45,7 @@ public class FineGrainedOrderExperiment {
             e.printStackTrace();
         }
         try {
-            BufferedReader reader = new BufferedReader(new FileReader(projectDir + "queries/"+count+"-tpch"+tpchscale+"-order-constraint.dl"));
+            BufferedReader reader = new BufferedReader(new FileReader(projectDir + "queries+constraints/tpch/"+count+"-tpch"+tpchscale+"-order-constraint.dl"));
             String line = reader.readLine();
             while (line != null && !line.trim().equals("")) {
                 DatalogStatement constraint = parseDatalog.safeParseString(line);
@@ -78,15 +78,15 @@ public class FineGrainedOrderExperiment {
         int[] sizesOrders = {100, 250, 500};
 
         try {
-            PrintWriter writerNoJoin = new PrintWriter(new FileWriter(projectDir + "experiments/finegrain/orders-nojoin.csv"), true);
+            PrintWriter writerNoJoin = new PrintWriter(new FileWriter(projectDir + "results/finegrain/orders-nojoin.csv"), true);
             writerNoJoin.write("Qid,constraints,Qexecution,Qrows,Runifications,Rrows,Rexecution\n");
-            PrintWriter writerJoin = new PrintWriter(new FileWriter(projectDir + "experiments/finegrain/orders-join.csv"), true);
+            PrintWriter writerJoin = new PrintWriter(new FileWriter(projectDir + "results/finegrain/orders-join.csv"), true);
             writerJoin.write("Qid,constraints,Qexecution,Qrows,Runifications,Rrows,Rexecution\n");
             for (Integer queryID : queries) {
 
                 //Parse Query
                 DatalogStatement query = null;
-                query = parsePostgreSQL.parseFile(projectDir + "queries/" + queryID + "-clean.sql");
+                query = parsePostgreSQL.parseFile(projectDir + "queries+constraints/tpch/" + queryID + "-clean.sql");
 
                 int qRows = experiment.sizeOfQuery(query.toPostgreSQLString());
 
